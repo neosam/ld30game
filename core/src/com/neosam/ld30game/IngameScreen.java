@@ -34,6 +34,7 @@ public class IngameScreen implements Screen {
 
     private MapController map;
     private BackgroundController background;
+    private float cameraMovementFactor = 7f;
 
     public IngameScreen() {
         initializeEssencials();
@@ -89,7 +90,10 @@ public class IngameScreen implements Screen {
         Gdx.gl.glClear(Gdx.gl20.GL_COLOR_BUFFER_BIT);
         background.draw(batch);
         world.step(delta, 2, 6);
-        camera.position.set(hero.getX(), hero.getY(), 0);
+        camera.position.set(
+                camera.position.x - (camera.position.x - hero.getX()) * cameraMovementFactor * delta,
+                camera.position.y - (camera.position.y - hero.getY()) * cameraMovementFactor * delta,
+                0);
         stage.act(delta);
         map.draw(batch);
         stage.draw();
