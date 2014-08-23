@@ -4,168 +4,252 @@ filter: Linear,Linear
 repeat: none
 hero_idle_
   rotate: false
-  xy: 642, 2
+  xy: 2, 1036
   size: 78, 147
   orig: 88, 151
   offset: 10, 0
   index: 0
 hero_idle_
   rotate: false
-  xy: 722, 2
+  xy: 82, 1046
   size: 78, 147
   orig: 88, 151
   offset: 10, 0
   index: 1
 hero_idle_
   rotate: false
-  xy: 802, 2
+  xy: 162, 1046
   size: 78, 147
   orig: 88, 151
   offset: 10, 0
   index: 2
 hero_idle_
   rotate: false
-  xy: 2, 2
+  xy: 82, 1195
   size: 78, 149
   orig: 88, 151
   offset: 10, 0
   index: 3
 hero_idle_
   rotate: false
-  xy: 82, 2
+  xy: 162, 1195
   size: 78, 149
   orig: 88, 151
   offset: 10, 0
   index: 4
 hero_idle_
   rotate: false
-  xy: 162, 2
+  xy: 2, 1334
   size: 78, 149
   orig: 88, 151
   offset: 10, 0
   index: 5
 hero_idle_
   rotate: false
-  xy: 242, 2
+  xy: 82, 1346
   size: 78, 149
   orig: 88, 151
   offset: 10, 0
   index: 6
 hero_idle_
   rotate: false
-  xy: 322, 2
+  xy: 162, 1346
   size: 78, 149
   orig: 88, 151
   offset: 10, 0
   index: 7
 hero_idle_
   rotate: false
-  xy: 402, 2
+  xy: 2, 1485
   size: 78, 149
   orig: 88, 151
   offset: 10, 0
   index: 8
 hero_idle_
   rotate: false
-  xy: 482, 2
+  xy: 82, 1497
   size: 78, 149
   orig: 88, 151
   offset: 10, 0
   index: 9
 hero_idle_
   rotate: false
-  xy: 562, 2
+  xy: 162, 1497
   size: 78, 149
   orig: 88, 151
   offset: 10, 0
   index: 10
 hero_idle_
   rotate: false
-  xy: 882, 2
+  xy: 2, 1185
   size: 78, 147
   orig: 88, 151
   offset: 10, 0
   index: 11
+hero_jump_
+  rotate: false
+  xy: 168, 365
+  size: 81, 123
+  orig: 81, 123
+  offset: 0, 0
+  index: 0
+hero_jump_
+  rotate: false
+  xy: 168, 242
+  size: 81, 121
+  orig: 81, 123
+  offset: 0, 2
+  index: 1
+hero_jump_
+  rotate: false
+  xy: 2, 363
+  size: 81, 121
+  orig: 81, 123
+  offset: 0, 2
+  index: 2
+hero_jump_
+  rotate: false
+  xy: 2, 121
+  size: 81, 119
+  orig: 81, 123
+  offset: 0, 4
+  index: 3
+hero_jump_
+  rotate: false
+  xy: 85, 121
+  size: 81, 119
+  orig: 81, 123
+  offset: 0, 4
+  index: 4
+hero_jump_
+  rotate: false
+  xy: 2, 2
+  size: 81, 117
+  orig: 81, 123
+  offset: 0, 6
+  index: 5
+hero_jump_
+  rotate: false
+  xy: 85, 2
+  size: 81, 117
+  orig: 81, 123
+  offset: 0, 6
+  index: 6
+hero_jump_
+  rotate: false
+  xy: 168, 2
+  size: 81, 117
+  orig: 81, 123
+  offset: 0, 6
+  index: 7
+hero_jump_
+  rotate: false
+  xy: 168, 121
+  size: 81, 119
+  orig: 81, 123
+  offset: 0, 4
+  index: 8
+hero_jump_
+  rotate: false
+  xy: 2, 242
+  size: 81, 119
+  orig: 81, 123
+  offset: 0, 4
+  index: 9
+hero_jump_
+  rotate: false
+  xy: 85, 242
+  size: 81, 119
+  orig: 81, 123
+  offset: 0, 4
+  index: 10
+hero_jump_
+  rotate: false
+  xy: 85, 363
+  size: 81, 121
+  orig: 81, 123
+  offset: 0, 2
+  index: 11
 hero_run_
   rotate: false
-  xy: 1598, 2
+  xy: 2, 614
   size: 79, 130
   orig: 83, 142
   offset: 0, 8
   index: 0
 hero_run_
   rotate: false
-  xy: 1843, 2
+  xy: 2, 486
   size: 79, 126
   orig: 83, 142
   offset: 0, 12
   index: 1
 hero_run_
   rotate: false
-  xy: 1764, 2
+  xy: 83, 486
   size: 77, 128
   orig: 83, 142
   offset: 0, 11
   index: 2
 hero_run_
   rotate: false
-  xy: 1521, 2
+  xy: 83, 616
   size: 75, 134
   orig: 83, 142
   offset: 0, 5
   index: 3
 hero_run_
   rotate: false
-  xy: 1047, 2
+  xy: 156, 758
   size: 79, 142
   orig: 83, 142
   offset: 0, 0
   index: 4
 hero_run_
   rotate: false
-  xy: 962, 2
+  xy: 156, 902
   size: 83, 142
   orig: 83, 142
   offset: 0, 0
   index: 5
 hero_run_
   rotate: false
-  xy: 1359, 2
+  xy: 160, 620
   size: 83, 136
   orig: 83, 142
   offset: 0, 4
   index: 6
 hero_run_
   rotate: false
-  xy: 1679, 2
+  xy: 162, 490
   size: 83, 128
   orig: 83, 142
   offset: 0, 11
   index: 7
 hero_run_
   rotate: false
-  xy: 1444, 2
+  xy: 2, 746
   size: 75, 136
   orig: 83, 142
   offset: 0, 3
   index: 8
 hero_run_
   rotate: false
-  xy: 1128, 2
+  xy: 2, 884
   size: 75, 142
   orig: 83, 142
   offset: 0, 0
   index: 9
 hero_run_
   rotate: false
-  xy: 1205, 2
+  xy: 79, 892
   size: 75, 142
   orig: 83, 142
   offset: 0, 0
   index: 10
 hero_run_
   rotate: false
-  xy: 1282, 2
+  xy: 79, 752
   size: 75, 138
   orig: 83, 142
   offset: 0, 2

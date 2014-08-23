@@ -23,6 +23,7 @@ public class AnimatedPhysicsActor extends PhysicsActor {
 
     private Direction direction = Direction.left;
     private boolean running = false;
+    private boolean jumping = false;
     private float maxSpeed = 30;
     private Vector2 leftImpulse = new Vector2(-5, 0);
     private Vector2 rightImpulse = new Vector2(5, 0);
@@ -39,6 +40,7 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     private void prepareDefaultAnimations() {
         prepareAnimation(0.1f, atlasPrefix + "idle" + atlasSuffix, "idle");
         prepareAnimation(0.03f, atlasPrefix + "run" + atlasSuffix, "run");
+        prepareAnimation(0.1f, atlasPrefix + "jump" + atlasSuffix, "jump");
         activateAnimation("idle");
     }
 
@@ -55,8 +57,11 @@ public class AnimatedPhysicsActor extends PhysicsActor {
 
     private void activateAnimation(String name) {
         if (animationMap.containsKey(name)) {
-            currentAnimation = animationMap.get(name);
-            duration = 0;
+            final Animation newAnimation = animationMap.get(name);
+            if (currentAnimation != newAnimation) {
+                currentAnimation = animationMap.get(name);
+                duration = 0;
+            }
         }
     }
 
@@ -73,7 +78,9 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     }
 
     private void refreshAnimation() {
-        if (running) {
+        if (jumping) {
+            activateAnimation("jump");
+        } else if (running) {
             activateAnimation("run");
         } else {
             activateAnimation("idle");
@@ -82,6 +89,8 @@ public class AnimatedPhysicsActor extends PhysicsActor {
 
     public void jump() {
         getBody().applyLinearImpulse(jumpImpulse, getBody().getWorldCenter(), true);
+        jumping = true;
+        refreshAnimation();
     }
 
     @Override
@@ -94,6 +103,13 @@ public class AnimatedPhysicsActor extends PhysicsActor {
                 getBody().applyLinearImpulse(leftImpulse, getBody().getWorldCenter(), true);
             } else if (direction == Direction.right) {
                 getBody().applyLinearImpulse(rightImpulse, getBody().getWorldCenter(), true);
+            }
+        }
+
+        if (jumping) {
+            if (getBody().getLinearVelocity().y == 0) {
+                jumping = false;
+                refreshAnimation();
             }
         }
 
