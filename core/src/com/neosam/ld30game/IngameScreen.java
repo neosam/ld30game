@@ -4,8 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -31,13 +33,20 @@ public class IngameScreen implements Screen {
     private AssetManager assetManager;
 
     private MapController map;
+    private BackgroundController background;
 
     public IngameScreen() {
         initializeEssencials();
         loadAssets();
         initializePhysics();
         initializeMap();
+        initializeBackground();
         initializeActors();
+    }
+
+    private void initializeBackground() {
+        final Texture backgroundTexture = assetManager.get("background.png", Texture.class);
+        background = new BackgroundController(camera, backgroundTexture);
     }
 
     private void initializeMap() {
@@ -48,6 +57,7 @@ public class IngameScreen implements Screen {
     private void loadAssets() {
         assetManager = new AssetManager();
         assetManager.load("hero.txt", TextureAtlas.class);
+        assetManager.load("background.png", Texture.class);
         assetManager.finishLoading();
     }
 
@@ -77,6 +87,7 @@ public class IngameScreen implements Screen {
         final Batch batch = stage.getSpriteBatch();
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(Gdx.gl20.GL_COLOR_BUFFER_BIT);
+        background.draw(batch);
         world.step(delta, 2, 6);
         camera.position.set(hero.getX(), hero.getY(), 0);
         stage.act(delta);
