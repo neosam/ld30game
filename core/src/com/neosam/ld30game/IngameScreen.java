@@ -19,6 +19,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
  * Created by neosam on 23.08.14.
  */
 public class IngameScreen implements Screen {
+    private IngameScreenDef ingameScreenDef;
+
     private int WORLD_WIDTH = 30;
     private int WORLD_HEIGHT = 20;
 
@@ -37,7 +39,8 @@ public class IngameScreen implements Screen {
     private float cameraMovementFactorX = 7f;
     private float cameraMovementFactorY = 30f;
 
-    public IngameScreen() {
+    public IngameScreen(IngameScreenDef ingameScreenDef) {
+        this.ingameScreenDef = ingameScreenDef;
         initializeEssencials();
         loadAssets();
         initializePhysics();
@@ -47,12 +50,12 @@ public class IngameScreen implements Screen {
     }
 
     private void initializeBackground() {
-        final Texture backgroundTexture = assetManager.get("background.png", Texture.class);
+        final Texture backgroundTexture = assetManager.get(ingameScreenDef.background1, Texture.class);
         background = new BackgroundController(camera, backgroundTexture);
     }
 
     private void initializeMap() {
-        map = new MapController("map.tmx");
+        map = new MapController(ingameScreenDef.map1);
         map.getOffset().x = 100;
         map.getOffset().y = 10;
         map.applyPhysics(world);
@@ -61,7 +64,7 @@ public class IngameScreen implements Screen {
     private void loadAssets() {
         assetManager = new AssetManager();
         assetManager.load("hero.txt", TextureAtlas.class);
-        assetManager.load("background.png", Texture.class);
+        assetManager.load(ingameScreenDef.background1, Texture.class);
         assetManager.finishLoading();
     }
 
