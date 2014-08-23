@@ -7,6 +7,7 @@ import com.neosam.ld30game.Main;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+        config.title = "Ludum Dare 30";
 		new LwjglApplication(new Main(), config);
 	}
 }
