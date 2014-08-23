@@ -18,7 +18,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 /**
  * Created by neosam on 23.08.14.
  */
-public class IngameScreen implements Screen {
+public class IngameScreen implements Screen, HeroCollisionListener {
     private IngameScreenDef ingameScreenDef;
 
     private int WORLD_WIDTH = 30;
@@ -56,6 +56,7 @@ public class IngameScreen implements Screen {
         background = new BackgroundController(camera, backgroundTexture1);
         final Texture backgroundTexture2 = assetManager.get(ingameScreenDef.background2, Texture.class);
         background2 = new BackgroundController(camera, backgroundTexture2);
+        background2.addOffset(-ingameScreenDef.background2Offset.x, -ingameScreenDef.background2Offset.y);
     }
 
     private void initializeMap() {
@@ -77,7 +78,7 @@ public class IngameScreen implements Screen {
 
     private void initializeActors() {
         final TextureAtlas textureAtlas = assetManager.get("hero.txt", TextureAtlas.class);
-        hero = new Hero(world, new Vector2(2, 4), textureAtlas, "hero_", "_");
+        hero = new Hero(world, new Vector2(2, 4), textureAtlas, "hero_", "_", this);
         final Vector2 playerSpawnPoint = map.getTriggerPoint("player_spawn");
         hero.getBody().setTransform(playerSpawnPoint, 0);
         collisionController.addCollisionCallback(hero);
@@ -118,7 +119,14 @@ public class IngameScreen implements Screen {
                 camera.position.y - (camera.position.y - hero.getY()) * cameraMovementFactorY * delta,
                 0);
         stage.act(delta);
-        map.draw(batch);
+        switch (currentWorld) {
+            case 1:
+                map.draw(batch);
+                break;
+            case 2:
+                map2.draw(batch);
+                break;
+        }
         stage.draw();
         debugRenderer.render(world, camera.combined);
     }
@@ -152,5 +160,32 @@ public class IngameScreen implements Screen {
     @Override
     public void dispose() {
 
+    }
+
+    @Override
+    public void collisionWithPortal(String portal) {
+        swapWorlds(portal);
+    }
+
+    private void swapWorlds(String portal) {
+        MapController newMap;
+        switch (currentWorld) {
+            case 1:
+                newMap = map2;
+                currentWorld = 2;
+                Gdx.app.log("Swap", "Swap worlds to 2");
+                break;
+            case 2:
+                newMap = map;
+                currentWorld = 1;
+                Gdx.app.log("Swap", "Swap worlds to 1");
+                break;
+            default:
+                /* should not happen.  But do nothing if so */
+                return;
+        }
+        final Vector2 destinationPortal = newMap.getTriggerPoint(portal);
+        destinationPortal.add(newMap.getOffset());
+        hero.setPositionNextAct(destinationPortal);
     }
 }

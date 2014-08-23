@@ -11,6 +11,7 @@ public class PhysicsActor extends Actor {
     private final Vector2 size;
     private World world;
     private Body body;
+    private Vector2 positionNextAct;
 
     public PhysicsActor(World world, Vector2 size) {
         this.world = world;
@@ -36,6 +37,10 @@ public class PhysicsActor extends Actor {
 
     @Override
     public void act(float delta) {
+        if (positionNextAct != null) {
+            body.setTransform(positionNextAct, 0);
+            positionNextAct = null;
+        }
         setPosition(body.getPosition().x, body.getPosition().y);
     }
 
@@ -46,5 +51,9 @@ public class PhysicsActor extends Actor {
 
     public Vector2 getSize() {
         return size;
+    }
+
+    public void setPositionNextAct(Vector2 positionNextAct) {
+        this.positionNextAct = positionNextAct;
     }
 }

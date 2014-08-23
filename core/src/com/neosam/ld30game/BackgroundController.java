@@ -27,4 +27,9 @@ public class BackgroundController {
                 sizeX, sizeY);
         batch.end();
     }
+
+    public void addOffset(float offsetX, float offsetY) {
+        this.offsetX += offsetX;
+        this.offsetY += offsetY;
+    }
 }

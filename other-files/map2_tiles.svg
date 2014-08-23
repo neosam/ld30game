@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="256"
+   id="svg3784"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="map2_tiles.svg"
+   inkscape:export-filename="C:\Users\neosam\Documents\ld30game\core\assets\map_tiles.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs3786" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="32.851936"
+     inkscape:cy="56.79737"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4575"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       spacingx="32px"
+       spacingy="32px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata3789">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-796.36218)">
+    <rect
+       style="fill:#d4eef3;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3824"
+       width="63.63961"
+       height="64.018417"
+       x="16.162441"
+       y="175.81914"
+       transform="translate(0,796.36218)"
+       ry="4.1071429" />
+    <path
+       style="fill:#d4eef3;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="m 96,192 0,64 64,0 0,-64 z m 20.21875,15.90625 23.78125,0 c 2.27536,0 4.09375,1.81839 4.09375,4.09375 l 0,23.71875 c 0,2.27536 -1.81839,4.125 -4.09375,4.125 l -23.78125,0 c -2.27536,0 -4.09375,-1.84964 -4.09375,-4.125 l 0,-23.71875 c 0,-2.27536 1.81839,-4.09375 4.09375,-4.09375 z"
+       transform="translate(0,796.36218)"
+       id="rect4334"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccsssssssss" />
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-opacity:1"
+       id="rect4343"
+       width="31.980209"
+       height="31.946074"
+       x="112.12693"
+       y="207.89148"
+       transform="translate(0,796.36218)"
+       ry="4.1071429" />
+  </g>
+</svg>
