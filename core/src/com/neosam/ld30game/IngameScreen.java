@@ -39,6 +39,7 @@ public class IngameScreen implements Screen {
     private int currentWorld = 1;
     private float cameraMovementFactorX = 7f;
     private float cameraMovementFactorY = 30f;
+    private CollisionController collisionController;
 
     public IngameScreen(IngameScreenDef ingameScreenDef) {
         this.ingameScreenDef = ingameScreenDef;
@@ -79,6 +80,7 @@ public class IngameScreen implements Screen {
         hero = new Hero(world, new Vector2(2, 4), textureAtlas, "hero_", "_");
         final Vector2 playerSpawnPoint = map.getTriggerPoint("player_spawn");
         hero.getBody().setTransform(playerSpawnPoint, 0);
+        collisionController.addCollisionCallback(hero);
         stage.addActor(hero);
         stage.setKeyboardFocus(hero);
     }
@@ -86,6 +88,8 @@ public class IngameScreen implements Screen {
     private void initializePhysics() {
         world = new World(new Vector2(0, -100), true);
         debugRenderer = new Box2DDebugRenderer();
+        collisionController = new CollisionController();
+        world.setContactListener(collisionController);
     }
 
     private void initializeEssencials() {

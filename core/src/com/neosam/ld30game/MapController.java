@@ -94,7 +94,8 @@ public class MapController {
         fixtureDef.shape = shape;
         fixtureDef.isSensor = true;
         final Fixture fixture = body.createFixture(fixtureDef);
-        fixture.setUserData(portalName);
+        body.setUserData(portalName);
+        fixture.setUserData("portal");
         shape.dispose();
     }
 
