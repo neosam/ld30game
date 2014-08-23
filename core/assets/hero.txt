@@ -1,0 +1,88 @@
+hero.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hero_idle_
+  rotate: false
+  xy: 2, 1210
+  size: 78, 147
+  orig: 88, 151
+  offset: 10, 0
+  index: 0
+hero_idle_
+  rotate: false
+  xy: 2, 1359
+  size: 78, 147
+  orig: 88, 151
+  offset: 10, 0
+  index: 1
+hero_idle_
+  rotate: false
+  xy: 2, 1508
+  size: 78, 147
+  orig: 88, 151
+  offset: 10, 0
+  index: 2
+hero_idle_
+  rotate: false
+  xy: 2, 2
+  size: 78, 149
+  orig: 88, 151
+  offset: 10, 0
+  index: 3
+hero_idle_
+  rotate: false
+  xy: 2, 153
+  size: 78, 149
+  orig: 88, 151
+  offset: 10, 0
+  index: 4
+hero_idle_
+  rotate: false
+  xy: 2, 304
+  size: 78, 149
+  orig: 88, 151
+  offset: 10, 0
+  index: 5
+hero_idle_
+  rotate: false
+  xy: 2, 455
+  size: 78, 149
+  orig: 88, 151
+  offset: 10, 0
+  index: 6
+hero_idle_
+  rotate: false
+  xy: 2, 606
+  size: 78, 149
+  orig: 88, 151
+  offset: 10, 0
+  index: 7
+hero_idle_
+  rotate: false
+  xy: 2, 757
+  size: 78, 149
+  orig: 88, 151
+  offset: 10, 0
+  index: 8
+hero_idle_
+  rotate: false
+  xy: 2, 908
+  size: 78, 149
+  orig: 88, 151
+  offset: 10, 0
+  index: 9
+hero_idle_
+  rotate: false
+  xy: 2, 1059
+  size: 78, 149
+  orig: 88, 151
+  offset: 10, 0
+  index: 10
+hero_idle_
+  rotate: false
+  xy: 2, 1657
+  size: 78, 147
+  orig: 88, 151
+  offset: 10, 0
+  index: 11

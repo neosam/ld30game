@@ -16,6 +16,7 @@ public class PhysicsActor extends Actor {
         this.world = world;
         this.size = size;
         createBody();
+        setOrigin(size.x / 2, size.y / 2);
     }
 
     private void createBody() {
@@ -35,5 +36,14 @@ public class PhysicsActor extends Actor {
     @Override
     public void act(float delta) {
         setPosition(body.getPosition().x, body.getPosition().y);
+    }
+
+
+    public Body getBody() {
+        return body;
+    }
+
+    public Vector2 getSize() {
+        return size;
     }
 }

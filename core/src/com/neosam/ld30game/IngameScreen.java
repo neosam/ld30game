@@ -2,7 +2,9 @@ package com.neosam.ld30game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -25,14 +27,25 @@ public class IngameScreen implements Screen {
 
     private Hero hero;
 
+    private AssetManager assetManager;
+
     public IngameScreen() {
         initializeEssencials();
+        loadAssets();
         initializePhysics();
         initializeActors();
     }
 
+    private void loadAssets() {
+        assetManager = new AssetManager();
+        assetManager.load("hero.txt", TextureAtlas.class);
+        assetManager.finishLoading();
+    }
+
     private void initializeActors() {
-        hero = new Hero(world, new Vector2(1, 2));
+        final TextureAtlas textureAtlas = assetManager.get("hero.txt", TextureAtlas.class);
+        hero = new Hero(world, new Vector2(2, 4), textureAtlas, "hero_", "_");
+        hero.getBody().setTransform(6, 6, 0);
         stage.addActor(hero);
     }
 
