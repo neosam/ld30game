@@ -38,6 +38,7 @@ public class AnimatedPhysicsActor extends PhysicsActor {
 
     private void prepareDefaultAnimations() {
         prepareAnimation(0.1f, atlasPrefix + "idle" + atlasSuffix, "idle");
+        prepareAnimation(0.03f, atlasPrefix + "run" + atlasSuffix, "run");
         activateAnimation("idle");
     }
 
@@ -62,11 +63,13 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     public void startRun(Direction direction) {
         this.direction = direction;
         running = true;
+        activateAnimation("run");
     }
 
     public void stopRun() {
         running = false;
         getBody().setLinearVelocity(0, getBody().getLinearVelocity().y);
+        activateAnimation("idle");
     }
 
     public void jump() {
