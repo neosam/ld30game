@@ -109,6 +109,11 @@ public class AnimatedPhysicsActor extends PhysicsActor {
             } else if (direction == Direction.right) {
                 getBody().applyLinearImpulse(rightImpulse, getBody().getWorldCenter(), true);
             }
+            if (getBody().getLinearVelocity().x > maxSpeed) {
+                getBody().setLinearVelocity(maxSpeed, getBody().getLinearVelocity().y);
+            } else if (getBody().getLinearVelocity().x < -maxSpeed) {
+                getBody().setLinearVelocity(-maxSpeed, getBody().getLinearVelocity().y);
+            }
         }
 
         if (jumping) {
