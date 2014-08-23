@@ -23,9 +23,17 @@ public class IngameScreen implements Screen {
     private World world;
     private Box2DDebugRenderer debugRenderer;
 
+    private Hero hero;
+
     public IngameScreen() {
         initializeEssencials();
         initializePhysics();
+        initializeActors();
+    }
+
+    private void initializeActors() {
+        hero = new Hero(world, new Vector2(1, 2));
+        stage.addActor(hero);
     }
 
     private void initializePhysics() {
