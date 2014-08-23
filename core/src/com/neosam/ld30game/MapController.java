@@ -9,8 +9,11 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Array;
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Created by neosam on 23.08.14.
@@ -18,9 +21,15 @@ import java.util.Iterator;
 public class MapController {
     private TiledMap tiledMap;
     private Vector2 offset = new Vector2(0, 0);
+    private Map<String, Vector2> portals;
 
     public MapController(String path) {
         tiledMap = new TmxMapLoader().load(path);
+        fetchPortals();
+    }
+
+    private void fetchPortals() {
+        portals = getTriggerStartWith("portal_");
     }
 
     public void draw(Batch batch) {
@@ -66,6 +75,27 @@ public class MapController {
                 }
             }
         }
+
+        for (String portalName: portals.keySet()) {
+            final Vector2 portalPosition = portals.get(portalName);
+            addPortalBody(world, portalName, portalPosition);
+        }
+    }
+
+    private void addPortalBody(World world, String portalName, Vector2 portalPosition) {
+        final BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.StaticBody;
+        final Body body = world.createBody(bodyDef);
+        body.setTransform(portalPosition.x + offset.x, portalPosition.y + offset.y, 0);
+
+        final PolygonShape shape = new PolygonShape();
+        shape.setAsBox(0.1f, 0.1f);
+        final FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = shape;
+        fixtureDef.isSensor = true;
+        final Fixture fixture = body.createFixture(fixtureDef);
+        fixture.setUserData(portalName);
+        shape.dispose();
     }
 
     private void addBody(World world, float x, float y) {
@@ -88,6 +118,22 @@ public class MapController {
         final int tileHeight = (Integer) tiledMap.getProperties().get("tileheight");
         return new Vector2((Float) triggerObject.getProperties().get("x") / tileWidth,
                 (Float) triggerObject.getProperties().get("y") / tileHeight);
+    }
+
+    public Map<String, Vector2> getTriggerStartWith(String name) {
+        final HashMap<String, Vector2> triggerObjects = new HashMap<String, Vector2>();
+        final Iterator<MapObject> mapObjectIterator = tiledMap.getLayers().get("trigger").getObjects().iterator();
+        final int tileWidth = (Integer) tiledMap.getProperties().get("tilewidth");
+        final int tileHeight = (Integer) tiledMap.getProperties().get("tileheight");
+        while (mapObjectIterator.hasNext()) {
+            final MapObject mapObject = mapObjectIterator.next();
+            if (mapObject.getName().startsWith(name)) {
+                triggerObjects.put(mapObject.getName(), new Vector2(
+                        (Float) mapObject.getProperties().get("x") / tileWidth,
+                        (Float) mapObject.getProperties().get("y") / tileHeight));
+            }
+        }
+        return triggerObjects;
     }
 
     public Vector2 getOffset() {
