@@ -22,6 +22,7 @@ public class MapController {
     private TiledMap tiledMap;
     private Vector2 offset = new Vector2(0, 0);
     private Map<String, Vector2> portals;
+    private Body customsPortalBody;
 
     public MapController(String path) {
         tiledMap = new TmxMapLoader().load(path);
@@ -82,7 +83,7 @@ public class MapController {
         }
     }
 
-    private void addPortalBody(World world, String portalName, Vector2 portalPosition) {
+    private Body addPortalBody(World world, String portalName, Vector2 portalPosition) {
         final BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.StaticBody;
         final Body body = world.createBody(bodyDef);
@@ -97,6 +98,7 @@ public class MapController {
         body.setUserData(portalName);
         fixture.setUserData("portal");
         shape.dispose();
+        return body;
     }
 
     private void addBody(World world, float x, float y) {
@@ -128,7 +130,7 @@ public class MapController {
         final int tileHeight = (Integer) tiledMap.getProperties().get("tileheight");
         while (mapObjectIterator.hasNext()) {
             final MapObject mapObject = mapObjectIterator.next();
-            if (mapObject.getName().startsWith(name)) {
+            if (mapObject != null && mapObject.getName() != null && mapObject.getName().startsWith(name)) {
                 triggerObjects.put(mapObject.getName(), new Vector2(
                         (Float) mapObject.getProperties().get("x") / tileWidth,
                         (Float) mapObject.getProperties().get("y") / tileHeight));
@@ -137,7 +139,28 @@ public class MapController {
         return triggerObjects;
     }
 
+    public void setCustomPortal(World world, float x, float y) {
+        if (customsPortalBody != null) {
+            world.destroyBody(customsPortalBody);
+        }
+        final Vector2 portalPos = new Vector2(x - offset.x, y - offset.y);
+        portals.put("portal_custom", portalPos);
+        customsPortalBody = addPortalBody(world, "portal_custom", portalPos);
+    }
+
     public Vector2 getOffset() {
         return offset;
+    }
+
+    public boolean hasPortal(String name) {
+        return portals.containsKey(name);
+    }
+
+    public Vector2 getPortal(String portal) {
+        return portals.get(portal).cpy();
+    }
+
+    public Map<String, Vector2> getPortals() {
+        return portals;
     }
 }

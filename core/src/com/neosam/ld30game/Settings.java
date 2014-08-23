@@ -12,6 +12,7 @@ public class Settings {
     public int rightKey = Input.Keys.RIGHT;
     public int jumpKey = Input.Keys.UP;
     public int switchHeroKey = Input.Keys.SPACE;
+    public int createPortalKey = Input.Keys.ENTER;
 
     public boolean jumpCheat = false;
 }

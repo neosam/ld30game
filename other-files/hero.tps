@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>libgdx</string>
         <key>textureFileName</key>
-        <filename></filename>
+        <filename>../core/assets/hero.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -131,7 +131,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>../core/assets/hero.txt</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -176,6 +176,7 @@
         <array>
             <filename>hero-animations/idle</filename>
             <filename>hero-animations/run</filename>
+            <filename>hero-animations/jump</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

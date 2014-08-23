@@ -15,6 +15,9 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by neosam on 23.08.14.
  */
@@ -31,6 +34,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
     private Box2DDebugRenderer debugRenderer;
 
     private Hero hero, hero2;
+    private Portal customPortal1, customPortal2;
     private int currentHero = 1;
 
     private AssetManager assetManager;
@@ -67,6 +71,23 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         map2.getOffset().y = ingameScreenDef.map2Offset.y;
         map.applyPhysics(world);
         map2.applyPhysics(world);
+
+        initializePortals(map, new Vector2(0, 0));
+        initializePortals(map2, ingameScreenDef.map2Offset);
+    }
+
+    private void initializePortals(MapController map, Vector2 offset) {
+        final Map<String, Vector2> portals = map.getPortals();
+        for (Vector2 portalPosition: portals.values()) {
+            createPortalActor(portalPosition, offset);
+        }
+    }
+
+    private Portal createPortalActor(Vector2 portalPosition, Vector2 offset) {
+        final Portal newPortal = new Portal(assetManager.get("hero.txt", TextureAtlas.class));
+        newPortal.setPosition(portalPosition.x + offset.x, portalPosition.y + offset.y);
+        stage.addActor(newPortal);
+        return newPortal;
     }
 
     private void loadAssets() {
@@ -173,7 +194,10 @@ public class IngameScreen implements Screen, HeroCollisionListener {
 
     @Override
     public void collisionWithPortal(String portal) {
-        swapWorlds(portal);
+        MapController map = (currentWorld == 1) ? map2 : this.map;
+        if (map.hasPortal(portal)) {
+            swapWorlds(portal);
+        }
     }
 
     @Override
@@ -191,6 +215,24 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         Hero hero = (currentHero == 1) ? this.hero : hero2;
         if (hero.getWorld() != currentWorld) {
             swapWorlds(null);
+        }
+    }
+
+    @Override
+    public void createPortal() {
+        Hero hero = (currentHero == 1) ? this.hero : hero2;
+        MapController map = (currentWorld == 1) ? this.map : map2;
+        map.setCustomPortal(world, hero.getX(), hero.getY());
+        Portal customPortal = (currentWorld == 1) ? customPortal1 : customPortal2;
+        if (customPortal == null) {
+            customPortal = createPortalActor(new Vector2(hero.getX(), hero.getY()), new Vector2(0, 0));
+            if (currentWorld == 1) {
+                customPortal1 = customPortal;
+            } else if(currentWorld == 2) {
+                customPortal2 = customPortal;
+            }
+        } else {
+            customPortal.setPosition(hero.getX(), hero.getY());
         }
     }
 
@@ -216,7 +258,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         if (portal == null) {
             return;
         }
-        final Vector2 destinationPortal = newMap.getTriggerPoint(portal);
+        final Vector2 destinationPortal = newMap.getPortal(portal);
         destinationPortal.add(newMap.getOffset());
         hero.setPositionNextAct(destinationPortal);
     }

@@ -24,6 +24,8 @@ public class HeroInputListener extends InputListener {
             hero.jump();
         } else if (keycode == settings.switchHeroKey) {
             hero.switchHero();
+        } else if (keycode == settings.createPortalKey) {
+            hero.createPortal();
         }
         else {
             return false;

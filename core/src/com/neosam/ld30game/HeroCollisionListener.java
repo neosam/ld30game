@@ -6,4 +6,6 @@ package com.neosam.ld30game;
 public interface HeroCollisionListener {
     void collisionWithPortal(String portal);
     void switchHero();
+
+    void createPortal();
 }

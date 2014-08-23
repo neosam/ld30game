@@ -56,4 +56,8 @@ public class Hero extends AnimatedPhysicsActor implements CollisionCallback {
     public void setWorld(int world) {
         this.world = world;
     }
+
+    public void createPortal() {
+        heroCollisionListener.createPortal();
+    }
 }
