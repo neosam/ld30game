@@ -10,4 +10,5 @@ public class Settings {
 
     public int leftKey = Input.Keys.LEFT;
     public int rightKey = Input.Keys.RIGHT;
+    public int jumpKey = Input.Keys.UP;
 }

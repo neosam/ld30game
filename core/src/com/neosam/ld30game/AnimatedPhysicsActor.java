@@ -26,6 +26,7 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     private float maxSpeed = 30;
     private Vector2 leftImpulse = new Vector2(-5, 0);
     private Vector2 rightImpulse = new Vector2(5, 0);
+    private Vector2 jumpImpulse = new Vector2(0, 40);
 
     public AnimatedPhysicsActor(World world, Vector2 size, TextureAtlas textureAtlas, String atlasPrefix, String atlasSuffix) {
         super(world, size);
@@ -66,6 +67,10 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     public void stopRun() {
         running = false;
         getBody().setLinearVelocity(0, getBody().getLinearVelocity().y);
+    }
+
+    public void jump() {
+        getBody().applyLinearImpulse(jumpImpulse, getBody().getWorldCenter(), true);
     }
 
     @Override

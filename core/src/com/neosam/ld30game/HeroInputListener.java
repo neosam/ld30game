@@ -20,7 +20,9 @@ public class HeroInputListener extends InputListener {
             hero.startRun(Direction.left);
         } else if (keycode == settings.rightKey) {
             hero.startRun(Direction.right);
-        } else {
+        } else if (keycode == settings.jumpKey) {
+            hero.jump();
+        }else {
             return false;
         }
         return true;
