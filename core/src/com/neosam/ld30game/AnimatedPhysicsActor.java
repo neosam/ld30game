@@ -22,6 +22,10 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     private float duration = 0;
 
     private Direction direction = Direction.left;
+    private boolean running = false;
+    private float maxSpeed = 30;
+    private Vector2 leftImpulse = new Vector2(-5, 0);
+    private Vector2 rightImpulse = new Vector2(5, 0);
 
     public AnimatedPhysicsActor(World world, Vector2 size, TextureAtlas textureAtlas, String atlasPrefix, String atlasSuffix) {
         super(world, size);
@@ -54,10 +58,29 @@ public class AnimatedPhysicsActor extends PhysicsActor {
         }
     }
 
+    public void startRun(Direction direction) {
+        this.direction = direction;
+        running = true;
+    }
+
+    public void stopRun() {
+        running = false;
+        getBody().setLinearVelocity(0, getBody().getLinearVelocity().y);
+    }
+
     @Override
     public void act(float delta) {
         super.act(delta);
         duration += delta;
+
+        if (running) {
+            if (direction == Direction.left) {
+                getBody().applyLinearImpulse(leftImpulse, getBody().getWorldCenter(), true);
+            } else if (direction == Direction.right) {
+                getBody().applyLinearImpulse(rightImpulse, getBody().getWorldCenter(), true);
+            }
+        }
+
         if (currentAnimation != null) {
             currentFrame = currentAnimation.getKeyFrame(duration);
         }

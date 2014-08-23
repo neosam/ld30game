@@ -57,6 +57,7 @@ public class IngameScreen implements Screen {
         final Vector2 playerSpawnPoint = map.getTriggerPoint("player_spawn");
         hero.getBody().setTransform(playerSpawnPoint, 0);
         stage.addActor(hero);
+        stage.setKeyboardFocus(hero);
     }
 
     private void initializePhysics() {

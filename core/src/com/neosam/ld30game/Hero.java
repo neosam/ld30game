@@ -6,10 +6,11 @@ import com.badlogic.gdx.physics.box2d.World;
 
 /**
  * Created by neosam on 23.08.14.
- */
-public class Hero extends AnimatedPhysicsActor {
+                */
+        public class Hero extends AnimatedPhysicsActor {
 
-    public Hero(World world, Vector2 size, TextureAtlas textureAtlas, String atlasSuffix, String atlasPrefix) {
-        super(world, size, textureAtlas, atlasSuffix, atlasPrefix);
+            public Hero(World world, Vector2 size, TextureAtlas textureAtlas, String atlasSuffix, String atlasPrefix) {
+                super(world, size, textureAtlas, atlasSuffix, atlasPrefix);
+                addListener(new HeroInputListener(this));
     }
 }
