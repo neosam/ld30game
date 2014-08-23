@@ -21,6 +21,8 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     private String atlasPrefix = "";
     private float duration = 0;
 
+    private Direction direction = Direction.left;
+
     public AnimatedPhysicsActor(World world, Vector2 size, TextureAtlas textureAtlas, String atlasPrefix, String atlasSuffix) {
         super(world, size);
         this.textureAtlas = textureAtlas;
@@ -71,7 +73,14 @@ public class AnimatedPhysicsActor extends PhysicsActor {
             final float height = getSize().y;
             final float originX = getOriginX();
             final float originY = getOriginY();
-            batch.draw(currentFrame, x - originX, y - originY, width, height);
+            switch (direction) {
+                case right:
+                    batch.draw(currentFrame, x - originX, y - originY, width, height);
+                    break;
+                case left:
+                    batch.draw(currentFrame, x + originX, y - originY, -width, height);
+                    break;
+            }
         }
     }
 }
