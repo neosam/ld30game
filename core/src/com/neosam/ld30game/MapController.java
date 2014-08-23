@@ -17,6 +17,7 @@ import java.util.Iterator;
  */
 public class MapController {
     private TiledMap tiledMap;
+    private Vector2 offset = new Vector2(0, 0);
 
     public MapController(String path) {
         tiledMap = new TmxMapLoader().load(path);
@@ -38,7 +39,7 @@ public class MapController {
                             continue;
                         }
                         final TextureRegion textureRegion = cell.getTile().getTextureRegion();
-                        batch.draw(textureRegion, x, y, 1, 1);
+                        batch.draw(textureRegion, x + offset.x, y + offset.y, 1, 1);
                     }
                 }
             }
@@ -60,14 +61,14 @@ public class MapController {
                         if (cell == null) {
                             continue;
                         }
-                        addBody(world, x, y);
+                        addBody(world, x + offset.x, y + offset.y);
                     }
                 }
             }
         }
     }
 
-    private void addBody(World world, int x, int y) {
+    private void addBody(World world, float x, float y) {
         final BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.StaticBody;
         final Body body = world.createBody(bodyDef);
@@ -87,5 +88,9 @@ public class MapController {
         final int tileHeight = (Integer) tiledMap.getProperties().get("tileheight");
         return new Vector2((Float) triggerObject.getProperties().get("x") / tileWidth,
                 (Float) triggerObject.getProperties().get("y") / tileHeight);
+    }
+
+    public Vector2 getOffset() {
+        return offset;
     }
 }
