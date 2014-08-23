@@ -34,8 +34,9 @@ public class IngameScreen implements Screen {
 
     private AssetManager assetManager;
 
-    private MapController map;
-    private BackgroundController background;
+    private MapController map, map2;
+    private BackgroundController background, background2;
+    private int currentWorld = 1;
     private float cameraMovementFactorX = 7f;
     private float cameraMovementFactorY = 30f;
 
@@ -50,21 +51,26 @@ public class IngameScreen implements Screen {
     }
 
     private void initializeBackground() {
-        final Texture backgroundTexture = assetManager.get(ingameScreenDef.background1, Texture.class);
-        background = new BackgroundController(camera, backgroundTexture);
+        final Texture backgroundTexture1 = assetManager.get(ingameScreenDef.background1, Texture.class);
+        background = new BackgroundController(camera, backgroundTexture1);
+        final Texture backgroundTexture2 = assetManager.get(ingameScreenDef.background2, Texture.class);
+        background2 = new BackgroundController(camera, backgroundTexture2);
     }
 
     private void initializeMap() {
         map = new MapController(ingameScreenDef.map1);
-        map.getOffset().x = 100;
-        map.getOffset().y = 10;
+        map2 = new MapController(ingameScreenDef.map2);
+        map2.getOffset().x = ingameScreenDef.map2Offset.x;
+        map2.getOffset().y = ingameScreenDef.map2Offset.y;
         map.applyPhysics(world);
+        map2.applyPhysics(world);
     }
 
     private void loadAssets() {
         assetManager = new AssetManager();
         assetManager.load("hero.txt", TextureAtlas.class);
         assetManager.load(ingameScreenDef.background1, Texture.class);
+        assetManager.load(ingameScreenDef.background2, Texture.class);
         assetManager.finishLoading();
     }
 
@@ -94,7 +100,14 @@ public class IngameScreen implements Screen {
         final Batch batch = stage.getSpriteBatch();
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(Gdx.gl20.GL_COLOR_BUFFER_BIT);
-        background.draw(batch);
+        switch (currentWorld) {
+            case 1:
+                background.draw(batch);
+                break;
+            case 2:
+                background2.draw(batch);
+                break;
+        }
         world.step(delta, 2, 6);
         camera.position.set(
                 camera.position.x - (camera.position.x - hero.getX()) * cameraMovementFactorX * delta,
