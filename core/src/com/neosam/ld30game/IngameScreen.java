@@ -60,7 +60,7 @@ public class IngameScreen implements Screen {
     }
 
     private void initializePhysics() {
-        world = new World(new Vector2(0, 0), true);
+        world = new World(new Vector2(0, -100), true);
         debugRenderer = new Box2DDebugRenderer();
     }
 
