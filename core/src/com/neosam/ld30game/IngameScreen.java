@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -29,11 +30,18 @@ public class IngameScreen implements Screen {
 
     private AssetManager assetManager;
 
+    private MapController map;
+
     public IngameScreen() {
         initializeEssencials();
         loadAssets();
         initializePhysics();
+        initializeMap();
         initializeActors();
+    }
+
+    private void initializeMap() {
+        map = new MapController("map.tmx");
     }
 
     private void loadAssets() {
@@ -63,10 +71,13 @@ public class IngameScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        final Batch batch = stage.getSpriteBatch();
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(Gdx.gl20.GL_COLOR_BUFFER_BIT);
         world.step(delta, 2, 6);
+        camera.position.set(hero.getX(), hero.getY(), 0);
         stage.act(delta);
+        map.draw(batch);
         stage.draw();
         debugRenderer.render(world, camera.combined);
     }
