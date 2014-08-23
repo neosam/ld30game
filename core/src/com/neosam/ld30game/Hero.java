@@ -13,6 +13,7 @@ public class Hero extends AnimatedPhysicsActor implements CollisionCallback {
     private HeroCollisionListener heroCollisionListener;
     private float portalCollisionDisabledFor = 0;
     private int world = 1;
+    private boolean portalCreateable = false;
 
     public Hero(World world, Vector2 size, TextureAtlas textureAtlas, String atlasSuffix, String atlasPrefix,
                 HeroCollisionListener heroCollisionListener) {
@@ -58,6 +59,16 @@ public class Hero extends AnimatedPhysicsActor implements CollisionCallback {
     }
 
     public void createPortal() {
-        heroCollisionListener.createPortal();
+        if (portalCreateable) {
+            heroCollisionListener.createPortal();
+        }
+    }
+
+    public boolean isPortalCreateable() {
+        return portalCreateable;
+    }
+
+    public void setPortalCreateable(boolean portalCreateable) {
+        this.portalCreateable = portalCreateable;
     }
 }

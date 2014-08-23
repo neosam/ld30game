@@ -111,6 +111,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         hero2.getBody().setTransform(player2SpawnPoint, 0);
         collisionController.addCollisionCallback(hero2);
         hero2.setMultijumpable(true);
+        hero2.setPortalCreateable(true);
         stage.addActor(hero2);
         stage.setKeyboardFocus(hero);
     }
