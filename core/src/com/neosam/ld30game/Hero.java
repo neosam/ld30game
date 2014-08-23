@@ -19,11 +19,16 @@ public class Hero extends AnimatedPhysicsActor implements CollisionCallback {
 
     @Override
     public Object whenUserdataIs() {
-        return "portal";
+        return this;
     }
 
     @Override
     public void collisionStartedWith(Fixture fixture) {
-        Gdx.app.log("Hero", "Touched portal");
+        if (fixture.getUserData() == null) {
+            return;
+        }
+        if (fixture.getUserData().equals("portal")) {
+            Gdx.app.log("Hero", "Touched portal " + fixture.getBody().getUserData());
+        }
     }
 }

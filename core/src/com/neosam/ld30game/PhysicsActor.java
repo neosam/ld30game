@@ -29,6 +29,7 @@ public class PhysicsActor extends Actor {
         final FixtureDef bodyFixtureDef = new FixtureDef();
         bodyFixtureDef.shape = bodyShape;
         final Fixture bodyFixture = body.createFixture(bodyFixtureDef);
+        body.setUserData(this);
 
         bodyShape.dispose();
     }

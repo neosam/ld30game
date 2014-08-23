@@ -11,23 +11,23 @@ import java.util.Set;
  * Created by neosam on 23.08.14.
  */
 public class CollisionController implements ContactListener {
-    public Map<Object, CollisionCallback> collisionCallbackSet = new HashMap<Object, CollisionCallback>();
+    public Set<CollisionCallback> collisionCallbackSet = new HashSet<CollisionCallback>();
 
 
 
     public void addCollisionCallback(CollisionCallback callback) {
-        collisionCallbackSet.put(callback.whenUserdataIs(), callback);
+        collisionCallbackSet.add(callback);
     }
 
     @Override
     public void beginContact(Contact contact) {
         final Fixture fixture1 = contact.getFixtureA();
         final Fixture fixture2 = contact.getFixtureB();
-        if (collisionCallbackSet.containsKey(fixture1.getUserData())) {
-            collisionCallbackSet.get(fixture1.getUserData()).collisionStartedWith(fixture2);
+        if (collisionCallbackSet.contains(fixture1.getBody().getUserData())) {
+            ((CollisionCallback) fixture1.getBody().getUserData()).collisionStartedWith(fixture2);
         }
-        if (collisionCallbackSet.containsKey(fixture2.getUserData())) {
-            collisionCallbackSet.get(fixture2.getUserData()).collisionStartedWith(fixture1);
+        if (collisionCallbackSet.contains(fixture2.getBody().getUserData())) {
+            ((CollisionCallback) fixture2.getBody().getUserData()).collisionStartedWith(fixture1);
         }
     }
 
