@@ -34,7 +34,8 @@ public class IngameScreen implements Screen {
 
     private MapController map;
     private BackgroundController background;
-    private float cameraMovementFactor = 7f;
+    private float cameraMovementFactorX = 7f;
+    private float cameraMovementFactorY = 30f;
 
     public IngameScreen() {
         initializeEssencials();
@@ -91,8 +92,8 @@ public class IngameScreen implements Screen {
         background.draw(batch);
         world.step(delta, 2, 6);
         camera.position.set(
-                camera.position.x - (camera.position.x - hero.getX()) * cameraMovementFactor * delta,
-                camera.position.y - (camera.position.y - hero.getY()) * cameraMovementFactor * delta,
+                camera.position.x - (camera.position.x - hero.getX()) * cameraMovementFactorX * delta,
+                camera.position.y - (camera.position.y - hero.getY()) * cameraMovementFactorY * delta,
                 0);
         stage.act(delta);
         map.draw(batch);

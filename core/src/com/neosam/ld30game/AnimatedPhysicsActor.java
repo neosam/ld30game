@@ -29,7 +29,7 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     private float maxSpeed = 30;
     private Vector2 leftImpulse = new Vector2(-5, 0);
     private Vector2 rightImpulse = new Vector2(5, 0);
-    private Vector2 jumpImpulse = new Vector2(0, 60);
+    private Vector2 jumpImpulse = new Vector2(0, 50);
 
     public AnimatedPhysicsActor(World world, Vector2 size, TextureAtlas textureAtlas, String atlasPrefix, String atlasSuffix) {
         super(world, size);
