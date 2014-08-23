@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="64"
+   id="svg6235"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="hero2.svg">
+  <defs
+     id="defs6237" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="23.024002"
+     inkscape:cy="14.932886"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata6240">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-988.3622)">
+    <path
+       style="fill:#ff4b03;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1"
+       d="m 13.821486,1020.3144 c 0.519022,-0.5555 1.275323,-0.4604 2.091929,-0.2265 0.816606,0.2337 -0.0072,-4.7123 2.485324,-4.6349 3.089825,0.096 1.667085,4.8048 2.514386,4.5404 0.847301,-0.2644 1.58252,-0.3587 1.873464,0.321 3.106195,7.2561 0.523974,8.4919 -0.883883,12.2481 -1.283908,3.4255 -0.08705,4.2971 -1.010153,5.4296 -0.79777,0.9787 -2.020373,1.3757 -3.282995,1.3889 -2.020634,0.021 -4.412882,-0.5851 -5.303301,-2.3991 -1.481164,-3.0175 2.859148,-3.088 3.282996,-5.0508 0.826766,-3.8285 -4.441818,-8.7547 -1.767767,-11.6167 z"
+       id="rect2987"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sssssssssss"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\torso.png"
+       inkscape:export-xdpi="196.95662"
+       inkscape:export-ydpi="196.95662" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#eb9d35;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       id="path2985"
+       sodipodi:cx="17.930208"
+       sodipodi:cy="15.260139"
+       sodipodi:rx="12.374369"
+       sodipodi:ry="12.374369"
+       d="m 30.304577,15.260139 a 12.374369,12.374369 0 1 1 -24.7487375,0 12.374369,12.374369 0 1 1 24.7487375,0 z"
+       transform="translate(-0.64354671,988.50721)"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero-tiles\head.png"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-ydpi="199.22942" />
+    <rect
+       style="fill:#3d5bcf;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2990"
+       width="3.5355339"
+       height="10.354064"
+       x="14.452828"
+       y="1033.8253"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\upperleg.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       style="fill:#3d5bcf;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1"
+       d="m 17.735827,1042.4116 0,6.6923 -3.030458,0 0,-6.6923"
+       id="rect2992"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\lowerleg.png"
+       inkscape:export-xdpi="208"
+       inkscape:export-ydpi="208" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 17.104482,1047.9673 3.409265,3.283 -6.692261,-0.1262 0.883884,-3.0305 z"
+       id="path2994"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\foot.png"
+       inkscape:export-xdpi="208.69566"
+       inkscape:export-ydpi="208.69566" />
+    <rect
+       style="fill:#d13c00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3764"
+       width="3.1567266"
+       height="9.7227182"
+       x="14.95791"
+       y="1021.072"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\upperarm.png"
+       inkscape:export-xdpi="201.51604"
+       inkscape:export-ydpi="201.51604" />
+    <path
+       style="fill:#d13c00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1"
+       d="m 17.735824,1030.0372 0,7.4499 -2.146574,0 0,-7.4499"
+       id="rect3766"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\lowerarm.png"
+       inkscape:export-xdpi="201"
+       inkscape:export-ydpi="201" />
+    <path
+       transform="translate(0.56323426,990.28087)"
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       id="path3768"
+       sodipodi:cx="16.026785"
+       sodipodi:cy="48.910713"
+       sodipodi:rx="1.2053572"
+       sodipodi:ry="1.875"
+       d="m 17.232142,48.910713 a 1.2053572,1.875 0 1 1 -2.410714,0 1.2053572,1.875 0 1 1 2.410714,0 z"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\hand.png"
+       inkscape:export-xdpi="208.42105"
+       inkscape:export-ydpi="208.42105" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       id="path3770"
+       sodipodi:cx="-28.852482"
+       sodipodi:cy="17.091042"
+       sodipodi:rx="3.5986683"
+       sodipodi:ry="3.5986683"
+       d="m -25.253814,17.091042 a 3.5986683,3.5986683 0 1 1 -7.197336,0 3.5986683,3.5986683 0 1 1 7.197336,0 z"
+       transform="translate(53.90469,986.23437)"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero-tiles\head.png"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-ydpi="199.22942" />
+    <path
+       transform="translate(46.707353,991.03259)"
+       d="m -25.253814,17.091042 a 3.5986683,3.5986683 0 1 1 -7.197336,0 3.5986683,3.5986683 0 1 1 7.197336,0 z"
+       sodipodi:ry="3.5986683"
+       sodipodi:rx="3.5986683"
+       sodipodi:cy="17.091042"
+       sodipodi:cx="-28.852482"
+       id="path3772"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="arc"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero-tiles\head.png"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-ydpi="199.22942" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 22.97121,1007.7597 c 0,0 1.397112,0.7979 1.160714,1.3393 -0.178743,0.4094 -1.339285,0.045 -1.339285,0.045"
+       id="path3774"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero-tiles\head.png"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-ydpi="199.22942" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 27.122996,1009.4561 c -0.04464,0.2233 -0.505753,1.5282 -1.071429,2.0537 -1.211121,1.1251 -4.553571,1.9643 -4.553571,1.9643"
+       id="path3776"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero-tiles\head.png"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-ydpi="199.22942" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#49b9ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       id="path3780"
+       sodipodi:cx="19.429653"
+       sodipodi:cy="20.358253"
+       sodipodi:rx="0.74183077"
+       sodipodi:ry="0.74183077"
+       d="m 20.171484,20.358253 a 0.74183077,0.74183077 0 1 1 -1.483662,0 0.74183077,0.74183077 0 1 1 1.483662,0 z"
+       transform="translate(0.24033629,987.90743)"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero-tiles\head.png"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-ydpi="199.22942" />
+    <path
+       transform="translate(7.6270773,983.26704)"
+       d="m 20.171484,20.358253 a 0.74183077,0.74183077 0 1 1 -1.483662,0 0.74183077,0.74183077 0 1 1 1.483662,0 z"
+       sodipodi:ry="0.74183077"
+       sodipodi:rx="0.74183077"
+       sodipodi:cy="20.358253"
+       sodipodi:cx="19.429653"
+       id="path3782"
+       style="fill:#49b9ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="arc"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero-tiles\head.png"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-ydpi="199.22942" />
+    <path
+       inkscape:export-ydpi="199.22942"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\head_side.png"
+       transform="translate(-65.015808,1037.3587)"
+       d="m 30.304577,15.260139 a 12.374369,12.374369 0 1 1 -24.7487375,0 12.374369,12.374369 0 1 1 24.7487375,0 z"
+       sodipodi:ry="12.374369"
+       sodipodi:rx="12.374369"
+       sodipodi:cy="15.260139"
+       sodipodi:cx="17.930208"
+       id="path4537"
+       style="fill:#eb9d35;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="arc" />
+    <path
+       inkscape:export-ydpi="199.22942"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\head_side.png"
+       transform="translate(-9.9624967,1036.6011)"
+       d="m -25.253814,17.091042 a 3.5986683,3.5986683 0 1 1 -7.197336,0 3.5986683,3.5986683 0 1 1 7.197336,0 z"
+       sodipodi:ry="3.5986683"
+       sodipodi:rx="3.5986683"
+       sodipodi:cy="17.091042"
+       sodipodi:cx="-28.852482"
+       id="path4539"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="arc" />
+    <path
+       inkscape:export-ydpi="199.22942"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\head_side.png"
+       sodipodi:type="arc"
+       style="fill:#49b9ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       id="path4541"
+       sodipodi:cx="19.429653"
+       sodipodi:cy="20.358253"
+       sodipodi:rx="0.74183077"
+       sodipodi:ry="0.74183077"
+       d="m 20.171484,20.358253 a 0.74183077,0.74183077 0 1 1 -1.483662,0 0.74183077,0.74183077 0 1 1 1.483662,0 z"
+       transform="translate(-56.240108,1033.6338)" />
+    <path
+       inkscape:export-ydpi="199.22942"
+       inkscape:export-xdpi="199.22942"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\head_side.png"
+       sodipodi:nodetypes="csc"
+       inkscape:connector-curvature="0"
+       id="path4543"
+       d="m -35.466407,1055.8537 c 0,0 1.39711,0.7978 1.16072,1.3392 -0.17875,0.4093 -1.33929,0.045 -1.33929,0.045"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -46.075449,1058.5535 c 0,0 1.662708,2.4474 2.904188,3.1567 1.046511,0.5979 3.535534,0.7576 3.535534,0.7576"
+       id="path4545"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\head_side.png"
+       inkscape:export-xdpi="199"
+       inkscape:export-ydpi="199" />
+    <path
+       style="fill:#909090;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -64.285714,1055.9336 6.071428,2.7679 20.357143,-14.375 -0.892857,-7.2322 c 0,0 1.175821,3.9214 -0.178572,4.7322 -1.222018,0.7315 -2.480369,-1.4487 -3.839286,-1.875 -2.040254,-0.6401 -4.218261,-1.2535 -6.339285,-0.9822 -2.38009,0.3045 -1.431255,4.8829 -7.589286,1.3393 2.374313,4.3309 -2.803093,4.8032 -3.660714,7.0536 -0.699817,1.8364 -0.246725,3.9289 -0.178571,5.8929 0.04149,1.1957 0.357142,3.5714 0.357142,3.5714 z"
+       id="path6831"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccssscsscc"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\head_side.png"
+       inkscape:export-xdpi="199"
+       inkscape:export-ydpi="199" />
+    <path
+       inkscape:export-ydpi="199"
+       inkscape:export-xdpi="199"
+       inkscape:export-filename="C:\Users\neosam\Documents\ld30game\other-files\hero2-tiles\head_side.png"
+       sodipodi:nodetypes="ccccssscsscc"
+       inkscape:connector-curvature="0"
+       id="path6833"
+       d="m 0.89285757,1006.8265 6.07142803,2.7679 20.3571434,-14.37504 -0.892857,-7.2322 c 0,0 1.175821,3.9214 -0.178572,4.7322 -1.222018,0.7315 -2.480369,-1.4487 -3.839286,-1.875 -2.040254,-0.6401 -4.218261,-1.2535 -6.339285,-0.9822 -2.38009,0.3045 -1.431255,4.8829 -7.5892864,1.3393 2.3743134,4.3309 -2.803093,4.8032 -3.660714,7.0536 -0.699817,1.83644 -0.246725,3.92894 -0.178571,5.89294 0.04149,1.1957 0.357142,3.5714 0.357142,3.5714 z"
+       style="fill:#909090;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  </g>
+</svg>

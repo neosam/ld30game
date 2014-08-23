@@ -100,7 +100,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
 
     private void initializeActors() {
         final TextureAtlas textureAtlas = assetManager.get("hero.txt", TextureAtlas.class);
-        hero = new Hero(world, new Vector2(2, 4), textureAtlas, "hero_", "_", this);
+        hero = new Hero(world, new Vector2(2, 4), textureAtlas, "hero2_", "_", this);
         final Vector2 playerSpawnPoint = map.getTriggerPoint("player_spawn");
         hero.getBody().setTransform(playerSpawnPoint, 0);
         collisionController.addCollisionCallback(hero);

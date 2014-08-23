@@ -7,7 +7,7 @@
         <file id="3" name="hero-tiles/upperleg.png" width="10" height="25" pivot_x="0" pivot_y="1"/>
         <file id="4" name="hero-tiles/underleg.png" width="9" height="17" pivot_x="0" pivot_y="1"/>
         <file id="5" name="hero-tiles/foot.png" width="20" height="10" pivot_x="0" pivot_y="1"/>
-        <file id="6" name="hero-tiles/torso.png" width="29" height="55" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="hero-tiles/torso.png" width="31" height="54" pivot_x="0" pivot_y="1"/>
         <file id="7" name="hero-tiles/head.png" width="73" height="79" pivot_x="0" pivot_y="1"/>
         <file id="8" name="hero-tiles/head_side.png" width="73" height="79" pivot_x="0" pivot_y="1"/>
     </folder>
