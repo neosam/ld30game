@@ -30,7 +30,8 @@ public class IngameScreen implements Screen, HeroCollisionListener {
     private World world;
     private Box2DDebugRenderer debugRenderer;
 
-    private Hero hero;
+    private Hero hero, hero2;
+    private int currentHero = 1;
 
     private AssetManager assetManager;
 
@@ -83,6 +84,12 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         hero.getBody().setTransform(playerSpawnPoint, 0);
         collisionController.addCollisionCallback(hero);
         stage.addActor(hero);
+
+        hero2 = new Hero(world, new Vector2(2, 4), textureAtlas, "hero_", "_", this);
+        final Vector2 player2SpawnPoint = map.getTriggerPoint("player2_spawn");
+        hero2.getBody().setTransform(player2SpawnPoint, 0);
+        collisionController.addCollisionCallback(hero2);
+        stage.addActor(hero2);
         stage.setKeyboardFocus(hero);
     }
 
@@ -114,6 +121,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
                 break;
         }
         world.step(delta, 2, 6);
+        final Hero hero = (currentHero == 1)? this.hero: hero2;
         camera.position.set(
                 camera.position.x - (camera.position.x - hero.getX()) * cameraMovementFactorX * delta,
                 camera.position.y - (camera.position.y - hero.getY()) * cameraMovementFactorY * delta,
@@ -167,6 +175,20 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         swapWorlds(portal);
     }
 
+    @Override
+    public void switchHero() {
+        switch (currentHero) {
+            case 1:
+                stage.setKeyboardFocus(hero2);
+                currentHero = 2;
+                break;
+            case 2:
+                stage.setKeyboardFocus(hero);
+                currentHero = 1;
+                break;
+        }
+    }
+
     private void swapWorlds(String portal) {
         MapController newMap;
         switch (currentWorld) {
@@ -186,6 +208,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         }
         final Vector2 destinationPortal = newMap.getTriggerPoint(portal);
         destinationPortal.add(newMap.getOffset());
+        final Hero hero = (currentHero == 1) ? this.hero : hero2;
         hero.setPositionNextAct(destinationPortal);
     }
 }

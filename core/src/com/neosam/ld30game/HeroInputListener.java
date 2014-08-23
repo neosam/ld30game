@@ -22,7 +22,10 @@ public class HeroInputListener extends InputListener {
             hero.startRun(Direction.right);
         } else if (keycode == settings.jumpKey) {
             hero.jump();
-        }else {
+        } else if (keycode == settings.switchHeroKey) {
+            hero.switchHero();
+        }
+        else {
             return false;
         }
         return true;
