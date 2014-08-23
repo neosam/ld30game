@@ -63,13 +63,21 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     public void startRun(Direction direction) {
         this.direction = direction;
         running = true;
-        activateAnimation("run");
+        refreshAnimation();
     }
 
     public void stopRun() {
         running = false;
         getBody().setLinearVelocity(0, getBody().getLinearVelocity().y);
-        activateAnimation("idle");
+        refreshAnimation();
+    }
+
+    private void refreshAnimation() {
+        if (running) {
+            activateAnimation("run");
+        } else {
+            activateAnimation("idle");
+        }
     }
 
     public void jump() {
