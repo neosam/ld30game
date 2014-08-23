@@ -30,5 +30,6 @@
   <object name="portal_2" x="2420" y="2743"/>
   <object name="portal_3" x="2376" y="2441"/>
   <object name="player2_spawn" x="1496" y="2609"/>
+  <object x="427" y="3199" height="42"/>
  </objectgroup>
 </map>

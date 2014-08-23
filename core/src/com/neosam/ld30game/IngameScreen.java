@@ -89,6 +89,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         final Vector2 player2SpawnPoint = map.getTriggerPoint("player2_spawn");
         hero2.getBody().setTransform(player2SpawnPoint, 0);
         collisionController.addCollisionCallback(hero2);
+        hero2.setMultijumpable(true);
         stage.addActor(hero2);
         stage.setKeyboardFocus(hero);
     }

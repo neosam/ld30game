@@ -26,6 +26,7 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     private Direction direction = Direction.left;
     private boolean running = false;
     private boolean jumping = false;
+    private boolean multijumpable = false;
     private float maxSpeed = 30;
     private Vector2 leftImpulse = new Vector2(-5, 0);
     private Vector2 rightImpulse = new Vector2(5, 0);
@@ -90,7 +91,7 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     }
 
     public void jump() {
-        if (jumping == true && !settings.jumpCheat) {
+        if ((jumping == true || getBody().getLinearVelocity().y != 0) && !(settings.jumpCheat || multijumpable)) {
             return;
         }
         getBody().applyLinearImpulse(jumpImpulse, getBody().getWorldCenter(), true);
@@ -147,5 +148,9 @@ public class AnimatedPhysicsActor extends PhysicsActor {
                     break;
             }
         }
+    }
+
+    public void setMultijumpable(boolean multijumpable) {
+        this.multijumpable = multijumpable;
     }
 }

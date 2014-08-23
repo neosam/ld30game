@@ -13,5 +13,5 @@ public class Settings {
     public int jumpKey = Input.Keys.UP;
     public int switchHeroKey = Input.Keys.SPACE;
 
-    public boolean jumpCheat = true;
+    public boolean jumpCheat = false;
 }
