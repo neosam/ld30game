@@ -54,7 +54,8 @@ public class IngameScreen implements Screen {
     private void initializeActors() {
         final TextureAtlas textureAtlas = assetManager.get("hero.txt", TextureAtlas.class);
         hero = new Hero(world, new Vector2(2, 4), textureAtlas, "hero_", "_");
-        hero.getBody().setTransform(6, 6, 0);
+        final Vector2 playerSpawnPoint = map.getTriggerPoint("player_spawn");
+        hero.getBody().setTransform(playerSpawnPoint, 0);
         stage.addActor(hero);
     }
 

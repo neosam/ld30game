@@ -3,9 +3,11 @@ package com.neosam.ld30game;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 
 import java.util.Iterator;
@@ -77,5 +79,13 @@ public class MapController {
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef);
         shape.dispose();
+    }
+
+    public Vector2 getTriggerPoint(String name) {
+        final MapObject triggerObject = tiledMap.getLayers().get("trigger").getObjects().get(name);
+        final int tileWidth = (Integer) tiledMap.getProperties().get("tilewidth");
+        final int tileHeight = (Integer) tiledMap.getProperties().get("tileheight");
+        return new Vector2((Float) triggerObject.getProperties().get("x") / tileWidth,
+                (Float) triggerObject.getProperties().get("y") / tileHeight);
     }
 }
