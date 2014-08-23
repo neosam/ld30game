@@ -14,7 +14,10 @@
    id="svg3784"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 3">
+   sodipodi:docname="map_tiles.svg"
+   inkscape:export-filename="C:\Users\neosam\Documents\ld30game\core\assets\map_tiles.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs3786" />
   <sodipodi:namedview
@@ -128,7 +131,7 @@
      id="layer1"
      transform="translate(0,-796.36218)">
     <rect
-       style="fill:#30b13e;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#7bdb85;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
        id="rect3824"
        width="63.63961"
        height="64.018417"
@@ -137,7 +140,7 @@
        transform="translate(0,796.36218)"
        ry="4.1071429" />
     <path
-       style="fill:#30b13e;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       style="fill:#7bdb85;fill-opacity:1;fill-rule:evenodd;stroke:none"
        d="M 95.96875 191.71875 L 95.96875 256.28125 L 159.8125 256.28125 L 159.8125 191.71875 L 95.96875 191.71875 z M 116.21875 207.90625 L 140 207.90625 C 142.27536 207.90625 144.09375 209.72464 144.09375 212 L 144.09375 235.71875 C 144.09375 237.99411 142.27536 239.84375 140 239.84375 L 116.21875 239.84375 C 113.94339 239.84375 112.125 237.99411 112.125 235.71875 L 112.125 212 C 112.125 209.72464 113.94339 207.90625 116.21875 207.90625 z "
        transform="translate(0,796.36218)"
        id="rect4334" />

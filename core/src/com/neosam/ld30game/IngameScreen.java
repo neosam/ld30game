@@ -42,6 +42,7 @@ public class IngameScreen implements Screen {
 
     private void initializeMap() {
         map = new MapController("map.tmx");
+        map.applyPhysics(world);
     }
 
     private void loadAssets() {
