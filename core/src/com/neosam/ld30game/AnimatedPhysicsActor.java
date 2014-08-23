@@ -12,6 +12,8 @@ import java.util.Map;
  * Created by neosam on 23.08.14.
  */
 public class AnimatedPhysicsActor extends PhysicsActor {
+    private Settings settings = Settings.settings;
+
     private Animation currentAnimation;
     private TextureRegion currentFrame;
     private Map<String, Animation> animationMap = new HashMap<String, Animation>();
@@ -27,7 +29,7 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     private float maxSpeed = 30;
     private Vector2 leftImpulse = new Vector2(-5, 0);
     private Vector2 rightImpulse = new Vector2(5, 0);
-    private Vector2 jumpImpulse = new Vector2(0, 40);
+    private Vector2 jumpImpulse = new Vector2(0, 60);
 
     public AnimatedPhysicsActor(World world, Vector2 size, TextureAtlas textureAtlas, String atlasPrefix, String atlasSuffix) {
         super(world, size);
@@ -88,6 +90,9 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     }
 
     public void jump() {
+        if (jumping == true && !settings.jumpCheat) {
+            return;
+        }
         getBody().applyLinearImpulse(jumpImpulse, getBody().getWorldCenter(), true);
         jumping = true;
         refreshAnimation();
