@@ -187,10 +187,15 @@ public class IngameScreen implements Screen, HeroCollisionListener {
                 currentHero = 1;
                 break;
         }
+        Hero hero = (currentHero == 1) ? this.hero : hero2;
+        if (hero.getWorld() != currentWorld) {
+            swapWorlds(null);
+        }
     }
 
     private void swapWorlds(String portal) {
         MapController newMap;
+        Hero hero = (currentHero == 1) ? this.hero : hero2;
         switch (currentWorld) {
             case 1:
                 newMap = map2;
@@ -206,9 +211,12 @@ public class IngameScreen implements Screen, HeroCollisionListener {
                 /* should not happen.  But do nothing if so */
                 return;
         }
+        hero.setWorld(currentWorld);
+        if (portal == null) {
+            return;
+        }
         final Vector2 destinationPortal = newMap.getTriggerPoint(portal);
         destinationPortal.add(newMap.getOffset());
-        final Hero hero = (currentHero == 1) ? this.hero : hero2;
         hero.setPositionNextAct(destinationPortal);
     }
 }

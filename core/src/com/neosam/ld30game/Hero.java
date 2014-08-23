@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.World;
 public class Hero extends AnimatedPhysicsActor implements CollisionCallback {
     private HeroCollisionListener heroCollisionListener;
     private float portalCollisionDisabledFor = 0;
+    private int world = 1;
 
     public Hero(World world, Vector2 size, TextureAtlas textureAtlas, String atlasSuffix, String atlasPrefix,
                 HeroCollisionListener heroCollisionListener) {
@@ -46,5 +47,13 @@ public class Hero extends AnimatedPhysicsActor implements CollisionCallback {
 
     public void switchHero() {
         heroCollisionListener.switchHero();
+    }
+
+    public int getWorld() {
+        return world;
+    }
+
+    public void setWorld(int world) {
+        this.world = world;
     }
 }
