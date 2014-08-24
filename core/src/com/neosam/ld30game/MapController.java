@@ -82,6 +82,11 @@ public class MapController {
             final Vector2 portalPosition = portals.get(portalName);
             addPortalBody(world, portalName, portalPosition);
         }
+
+        final Vector2 finish = getTriggerPoint("finish");
+        if (finish != null) {
+            addFinish(world, finish);
+        }
     }
 
     private Body addPortalBody(World world, String portalName, Vector2 portalPosition) {
@@ -98,6 +103,23 @@ public class MapController {
         final Fixture fixture = body.createFixture(fixtureDef);
         body.setUserData(portalName);
         fixture.setUserData("portal");
+        shape.dispose();
+        return body;
+    }
+
+    private Body addFinish(World world, Vector2 position) {
+        final BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.StaticBody;
+        final Body body = world.createBody(bodyDef);
+        body.setTransform(position.x + offset.x, position.y + offset.y, 0);
+
+        final PolygonShape shape = new PolygonShape();
+        shape.setAsBox(0.1f, 0.1f);
+        final FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = shape;
+        fixtureDef.isSensor = true;
+        final Fixture fixture = body.createFixture(fixtureDef);
+        fixture.setUserData("finish");
         shape.dispose();
         return body;
     }
@@ -121,6 +143,9 @@ public class MapController {
 
     public Vector2 getTriggerPoint(String name) {
         final MapObject triggerObject = tiledMap.getLayers().get("trigger").getObjects().get(name);
+        if (triggerObject == null) {
+            return null;
+        }
         final int tileWidth = (Integer) tiledMap.getProperties().get("tilewidth");
         final int tileHeight = (Integer) tiledMap.getProperties().get("tileheight");
         return new Vector2((Float) triggerObject.getProperties().get("x") / tileWidth,

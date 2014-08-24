@@ -12,4 +12,5 @@ public class IngameScreenDef {
     public String background2;
     public Vector2 map2Offset;
     public Vector2 background2Offset;
+    public IngameScreenListener ingameScreenListener;
 }

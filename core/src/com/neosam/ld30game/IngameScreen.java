@@ -253,6 +253,11 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         }
     }
 
+    @Override
+    public void finishTouched() {
+        ingameScreenDef.ingameScreenListener.finished();
+    }
+
     private void swapWorlds(String portal) {
         MapController newMap;
         Hero hero = (currentHero == 1) ? this.hero : hero2;

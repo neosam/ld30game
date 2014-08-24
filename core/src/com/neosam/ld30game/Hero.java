@@ -44,6 +44,9 @@ public class Hero extends AnimatedPhysicsActor implements CollisionCallback {
             heroCollisionListener.collisionWithPortal((String) fixture.getBody().getUserData());
             portalCollisionDisabledFor = 1f;
         }
+        if (fixture.getUserData().equals("finish")) {
+            heroCollisionListener.finishTouched();
+        }
     }
 
     public void switchHero() {

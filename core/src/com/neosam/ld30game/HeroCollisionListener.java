@@ -8,4 +8,5 @@ public interface HeroCollisionListener {
     void switchHero();
 
     void createPortal();
+    void finishTouched();
 }

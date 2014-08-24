@@ -8,10 +8,14 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
-public class Main extends Game {
+public class Main extends Game implements IngameScreenListener {
 
     @Override
     public void create() {
+        loadLevel1();
+    }
+
+    public void loadLevel1() {
         final IngameScreenDef ingameScreenDef = new IngameScreenDef();
         ingameScreenDef.background1 = "background2.png";
         ingameScreenDef.background2 = "background.png";
@@ -19,6 +23,12 @@ public class Main extends Game {
         ingameScreenDef.map2 = "map.tmx";
         ingameScreenDef.map2Offset = new Vector2(200, 0);
         ingameScreenDef.background2Offset = new Vector2(-30, 0);
+        ingameScreenDef.ingameScreenListener = this;
         setScreen(new IngameScreen(ingameScreenDef));
+    }
+
+    @Override
+    public void finished() {
+        loadLevel1();
     }
 }
