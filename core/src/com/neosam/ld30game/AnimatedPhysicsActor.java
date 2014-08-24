@@ -153,4 +153,8 @@ public class AnimatedPhysicsActor extends PhysicsActor {
     public void setMultijumpable(boolean multijumpable) {
         this.multijumpable = multijumpable;
     }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
 }

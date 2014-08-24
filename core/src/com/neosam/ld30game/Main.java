@@ -27,7 +27,9 @@ public class Main extends Game implements IngameScreenListener {
         ingameScreenDef.map2Offset = new Vector2(200, 0);
         ingameScreenDef.background2Offset = new Vector2(-30, 0);
         ingameScreenDef.ingameScreenListener = this;
-        newScreenOnNewAct = new IngameScreen(ingameScreenDef);
+        IngameScreen ingameScreen = new IngameScreen(ingameScreenDef);
+        ingameScreen.setPreventPlayerChange(true);
+        newScreenOnNewAct = ingameScreen;
     }
 
     public void loadLevel1() {

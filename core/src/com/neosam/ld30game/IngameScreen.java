@@ -49,6 +49,8 @@ public class IngameScreen implements Screen, HeroCollisionListener {
     private float cameraMovementFactorY = 30f;
     private CollisionController collisionController;
 
+    private boolean preventPlayerChange = false;
+
     public IngameScreen(IngameScreenDef ingameScreenDef) {
         this.ingameScreenDef = ingameScreenDef;
         initializeEssencials();
@@ -108,6 +110,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         hero.getBody().setTransform(playerSpawnPoint, 0);
         collisionController.addCollisionCallback(hero);
         hero.setPortalCreateable(true);
+        hero.setDirection(Direction.right);
         stage.addActor(hero);
 
         hero2 = new Hero(world, new Vector2(2, 4), textureAtlas, "hero_", "_", this);
@@ -211,6 +214,9 @@ public class IngameScreen implements Screen, HeroCollisionListener {
 
     @Override
     public void switchHero() {
+        if (preventPlayerChange) {
+            return;
+        }
         switch (currentHero) {
             case 1:
                 stage.setKeyboardFocus(hero2);
@@ -285,5 +291,13 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         final Vector2 destinationPortal = newMap.getPortal(portal);
         destinationPortal.add(newMap.getOffset());
         hero.setPositionNextAct(destinationPortal);
+    }
+
+    public boolean isPreventPlayerChange() {
+        return preventPlayerChange;
+    }
+
+    public void setPreventPlayerChange(boolean preventPlayerChange) {
+        this.preventPlayerChange = preventPlayerChange;
     }
 }
