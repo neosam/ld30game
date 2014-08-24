@@ -23,6 +23,7 @@ public class PhysicsActor extends Actor {
     private void createBody() {
         final BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
+        bodyDef.fixedRotation = true;
         body = world.createBody(bodyDef);
 
         final PolygonShape bodyShape = new PolygonShape();

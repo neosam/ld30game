@@ -72,7 +72,10 @@ public class MapController {
                             continue;
                         }
                         final boolean dirt = cell.getTile().getProperties().containsKey("dirt");
-                        addBody(world, x + offset.x, y + offset.y, dirt);
+                        final boolean noWall = cell.getTile().getProperties().containsKey("nowall");
+                        if (!noWall) {
+                            addBody(world, x + offset.x, y + offset.y, dirt);
+                        }
                     }
                 }
             }
@@ -130,8 +133,8 @@ public class MapController {
         final Body body = world.createBody(bodyDef);
         body.setTransform(x + 0.5f, y + 0.5f, 0);
 
-        final PolygonShape shape = new PolygonShape();
-        shape.setAsBox(0.1f, 0.1f);
+        final CircleShape shape = new CircleShape();
+        shape.setRadius(0.1f);
         final FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         final Fixture fixture = body.createFixture(fixtureDef);
