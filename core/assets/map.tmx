@@ -91,7 +91,7 @@
   </data>
  </layer>
  <objectgroup name="trigger" width="100" height="100">
-  <object name="player_spawn" x="433" y="2863" width="3" height="4"/>
+  <object name="player_spawn" x="428" y="3011" width="20" height="14"/>
   <object name="portal_1" x="2588" y="2974" width="5" height="9"/>
   <object name="portal_2" x="284" y="2952"/>
   <object name="portal_3" x="256" y="2374"/>
