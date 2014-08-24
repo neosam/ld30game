@@ -9,7 +9,9 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.MassData;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
@@ -223,6 +225,11 @@ public class IngameScreen implements Screen, HeroCollisionListener {
                 break;
         }
         Hero hero = (currentHero == 1) ? this.hero : hero2;
+        Hero inactiveHero = (currentHero == 1) ? hero2 : this.hero;
+        inactiveHero.getBody().setType(BodyDef.BodyType.StaticBody);
+        hero.getBody().setType(BodyDef.BodyType.DynamicBody);
+
+
         if (hero.getWorld() != currentWorld) {
             swapWorlds(null);
         }
