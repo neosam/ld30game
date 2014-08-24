@@ -58,6 +58,7 @@ public class Main extends Game implements IngameScreenListener {
 
     public void loadStory1() {
         final String[] images = {
+                "logo.png",
                 "story/scene1/001.png",
                 "story/scene1/002.png",
                 "story/scene1/003.png",
