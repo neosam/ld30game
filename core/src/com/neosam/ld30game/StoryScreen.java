@@ -1,6 +1,7 @@
 package com.neosam.ld30game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
@@ -94,6 +95,9 @@ public class StoryScreen implements Screen, InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
+        if (keycode == Input.Keys.ESCAPE) {
+            ingameScreenListener.finished();
+        }
         if (lockTime < 0) {
             nextFrame();
         }
