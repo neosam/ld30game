@@ -56,4 +56,6 @@ public class PhysicsActor extends Actor {
     public void setPositionNextAct(Vector2 positionNextAct) {
         this.positionNextAct = positionNextAct;
     }
+
+
 }

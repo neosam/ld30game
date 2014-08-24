@@ -197,7 +197,8 @@ public class IngameScreen implements Screen, HeroCollisionListener {
 
     @Override
     public void dispose() {
-
+        stage.dispose();
+        world.dispose();
     }
 
     @Override

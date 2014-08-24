@@ -206,4 +206,8 @@ public class MapController {
             fixture.getBody().setActive(dirtsActive);
         }
     }
+
+    public void dispose() {
+        tiledMap.dispose();
+    }
 }
