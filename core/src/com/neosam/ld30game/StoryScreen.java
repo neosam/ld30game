@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -23,33 +24,41 @@ public class StoryScreen implements Screen, InputProcessor {
     private int currentImage = -1;
     private Texture currentTexture;
     private float lockTime = 0;
+    private Music music;
 
     public StoryScreen(String[] imageNames, IngameScreenListener ingameScreenListener) {
         this.imageNames = imageNames;
         this.ingameScreenListener = ingameScreenListener;
-        final Viewport viewport = new ExtendViewport(640, 680);
-        stage = new Stage();
+        final Viewport viewport = new ExtendViewport(640, 480);
+        stage = new Stage(viewport);
         nextFrame();
         Gdx.input.setInputProcessor(this);
+
+    }
+
+    public StoryScreen(String[] images, Main main, Music music) {
+        this(images, main);
+        this.music = music;
     }
 
 
     @Override
     public void render(float delta) {
-        final Batch batch = stage.getSpriteBatch();
-        Gdx.gl.glClearColor(1, 1, 1, 1);
-        Gdx.gl.glClear(Gdx.gl20.GL_COLOR_BUFFER_BIT);
-        batch.begin();
-        if (currentTexture != null) {
-            batch.draw(currentTexture, 0, 0, 640, 480);
-        }
+            final Batch batch = stage.getSpriteBatch();
+            Gdx.gl.glClearColor(1, 1, 1, 1);
+            Gdx.gl.glClear(Gdx.gl20.GL_COLOR_BUFFER_BIT);
+            batch.begin();
+            if (currentTexture != null) {
+                batch.draw(currentTexture, 0, 0, 640, 480);
+            }
         lockTime -= delta;
         batch.end();
     }
 
     @Override
     public void resize(int width, int height) {
-
+        final ExtendViewport viewport = (ExtendViewport) stage.getViewport();
+        viewport.setWorldSize(width, height);
     }
 
     @Override
@@ -78,6 +87,9 @@ public class StoryScreen implements Screen, InputProcessor {
     }
 
     private void nextFrame() {
+        if (music != null) {
+            music.stop();
+        }
         currentImage++;
         if (currentTexture != null) {
             currentTexture.dispose();

@@ -3,6 +3,7 @@ package com.neosam.ld30game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -50,6 +51,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
     private CollisionController collisionController;
 
     private boolean preventPlayerChange = false;
+    private Music music;
 
     public IngameScreen(IngameScreenDef ingameScreenDef) {
         this.ingameScreenDef = ingameScreenDef;
@@ -61,6 +63,9 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         initializeActors();
         switchHero(); /* triggers some useful stuff */
         switchHero();
+        music = Gdx.audio.newMusic(Gdx.files.internal("ingamemusic.mp3"));
+        music.setLooping(true);
+        music.play();
     }
 
     private void initializeBackground() {
@@ -202,8 +207,10 @@ public class IngameScreen implements Screen, HeroCollisionListener {
 
     @Override
     public void dispose() {
+        music.stop();
         stage.dispose();
         world.dispose();
+        assetManager.dispose();
     }
 
     @Override

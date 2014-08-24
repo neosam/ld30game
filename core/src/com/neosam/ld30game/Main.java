@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -12,13 +13,15 @@ import com.badlogic.gdx.math.Vector2;
 public class Main extends Game implements IngameScreenListener {
     private Screen newScreenOnNewAct = null;
     private int state = 0;
+    private Music music;
 
     @Override
     public void create() {
-        loadStory1();
+        loadStory1part1();
     }
 
     public void loadLevel0() {
+
         final IngameScreenDef ingameScreenDef = new IngameScreenDef();
         ingameScreenDef.background1 = "background2.png";
         ingameScreenDef.background2 = "background2.png";
@@ -56,13 +59,37 @@ public class Main extends Game implements IngameScreenListener {
         newScreenOnNewAct = new IngameScreen(ingameScreenDef);
     }
 
-    public void loadStory1() {
+    public void loadStory1part1() {
+        music = Gdx.audio.newMusic(Gdx.files.internal("titlemusic.mp3"));
+        music.setLooping(true);
+        music.play();
         final String[] images = {
                 "logo.png",
                 "story/scene1/001.png",
                 "story/scene1/002.png",
+        };
+        newScreenOnNewAct = new StoryScreen(images, this, music);
+    }
+    public void loadStory1part2() {
+        newScreenOnNewAct = new MoveHeroScreen("story/scene1/mountain.png", "story/scene1/single-hero.png",
+                new Vector2(30, 0), new Vector2(15, 10), this);
+    }
+    public void loadStory1part3() {
+        final String[] images = {
                 "story/scene1/003.png",
                 "story/scene1/004.png"
+        };
+        newScreenOnNewAct = new StoryScreen(images, this);
+    }
+    public void loadStory1part4() {
+        newScreenOnNewAct = new MoveHeroScreen("story/scene1/mountain.png", "story/scene1/single-hero.png",
+                new Vector2(14, 10), new Vector2(14, -1), this);
+    }
+    public void loadStory1part5() {
+        final String[] images = {
+                "story/scene1/005.png",
+                "story/scene1/006.png",
+                "story/scene1/007.png"
         };
         newScreenOnNewAct = new StoryScreen(images, this);
     }
@@ -93,6 +120,7 @@ public class Main extends Game implements IngameScreenListener {
                 "story/scene2/018.png",
                 "story/scene2/019.5.png",
                 "story/scene2/019.png",
+                "story/scene2/020.png",
         };
         newScreenOnNewAct = new StoryScreen(images, this);
     }
@@ -136,7 +164,24 @@ public class Main extends Game implements IngameScreenListener {
     public void finished() {
         switch (state) {
             case 0:
+                state = 3;
+                loadStory1part2();
+                break;
+            case 3:
+                state = 6;
+                loadStory1part3();
+                break;
+            case 6:
+                loadStory1part4();
+                state = 7;
+                break;
+            case 7:
+                loadStory1part5();
+                state = 9;
+                break;
+            case 9:
                 state = 10;
+                music.stop();
                 loadLevel0();
                 break;
             case 10:
@@ -145,6 +190,7 @@ public class Main extends Game implements IngameScreenListener {
                 break;
             case 20:
                 state = 30;
+                music.stop();
                 loadLevel1();
                 break;
             case 30:
@@ -153,6 +199,7 @@ public class Main extends Game implements IngameScreenListener {
                 break;
             case 40:
                 state = 50;
+                music.stop();
                 loadLevel2();
                 break;
             case 50:
