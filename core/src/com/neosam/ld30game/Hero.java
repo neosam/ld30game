@@ -42,7 +42,7 @@ public class Hero extends AnimatedPhysicsActor implements CollisionCallback {
         if (portalCollisionDisabledFor < 0 && fixture.getUserData().equals("portal")) {
             Gdx.app.log("Hero", "Touched portal " + fixture.getBody().getUserData());
             heroCollisionListener.collisionWithPortal((String) fixture.getBody().getUserData());
-            portalCollisionDisabledFor = 0.5f;
+            portalCollisionDisabledFor = 1f;
         }
     }
 

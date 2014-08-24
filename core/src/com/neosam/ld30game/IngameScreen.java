@@ -32,6 +32,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
 
     private World world;
     private Box2DDebugRenderer debugRenderer;
+    private float freezePhysicsFor = 0;
 
     private Hero hero, hero2;
     private Portal customPortal1, customPortal2;
@@ -143,7 +144,10 @@ public class IngameScreen implements Screen, HeroCollisionListener {
                 background2.draw(batch);
                 break;
         }
-        world.step(delta, 2, 6);
+        freezePhysicsFor -= delta;
+        if (freezePhysicsFor < 0) {
+            world.step(delta, 2, 6);
+        }
         final Hero hero = (currentHero == 1)? this.hero: hero2;
         camera.position.set(
                 camera.position.x - (camera.position.x - hero.getX()) * cameraMovementFactorX * delta,
@@ -256,6 +260,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
                 return;
         }
         hero.setWorld(currentWorld);
+        freezePhysicsFor = 0.5f;
         if (portal == null) {
             return;
         }
