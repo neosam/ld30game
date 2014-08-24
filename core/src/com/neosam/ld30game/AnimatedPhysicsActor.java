@@ -1,5 +1,7 @@
 package com.neosam.ld30game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
@@ -12,6 +14,7 @@ import java.util.Map;
  * Created by neosam on 23.08.14.
  */
 public class AnimatedPhysicsActor extends PhysicsActor {
+    private final Sound jumpSound;
     private Settings settings = Settings.settings;
 
     private Animation currentAnimation;
@@ -38,6 +41,8 @@ public class AnimatedPhysicsActor extends PhysicsActor {
         this.atlasPrefix = atlasPrefix;
         this.atlasSuffix = atlasSuffix;
         prepareDefaultAnimations();
+        jumpSound = Gdx.audio.newSound(Gdx.files.internal("jump.wav"));
+
     }
 
     private void prepareDefaultAnimations() {
@@ -94,6 +99,7 @@ public class AnimatedPhysicsActor extends PhysicsActor {
         if ((jumping == true || getBody().getLinearVelocity().y != 0) && !(settings.jumpCheat || multijumpable)) {
             return;
         }
+        jumpSound.play();
         getBody().applyLinearImpulse(jumpImpulse, getBody().getWorldCenter(), true);
         jumping = true;
         refreshAnimation();

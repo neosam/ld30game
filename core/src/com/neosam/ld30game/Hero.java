@@ -63,7 +63,7 @@ public class Hero extends AnimatedPhysicsActor implements CollisionCallback {
 
     public void createPortal() {
         if (portalCreateable) {
-            portalCollisionDisabledFor = .5f;
+            portalCollisionDisabledFor = .1f;
             heroCollisionListener.createPortal();
         }
     }

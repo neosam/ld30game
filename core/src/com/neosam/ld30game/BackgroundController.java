@@ -13,7 +13,7 @@ public class BackgroundController {
     private Texture texture;
     private float offsetX = -15, offsetY = -10;
     private float sizeX = 50, sizeY = 50;
-    private float scrollSpeed = 0.8f;
+    private float scrollSpeed = 0.9f;
 
     public BackgroundController(OrthographicCamera camera, Texture texture) {
         this.camera = camera;

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -52,6 +53,10 @@ public class IngameScreen implements Screen, HeroCollisionListener {
 
     private boolean preventPlayerChange = false;
     private Music music;
+    private Sound jumpSound;
+    private Sound createPortalSound;
+    private Sound jumpWorldSound;
+    private Sound changeHeroSound;
 
     public IngameScreen(IngameScreenDef ingameScreenDef) {
         this.ingameScreenDef = ingameScreenDef;
@@ -61,11 +66,20 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         initializeMap();
         initializeBackground();
         initializeActors();
+        initializeAudio();
         switchHero(); /* triggers some useful stuff */
         switchHero();
+
+    }
+
+    private void initializeAudio() {
         music = Gdx.audio.newMusic(Gdx.files.internal("ingamemusic.mp3"));
         music.setLooping(true);
         music.play();
+        jumpSound = Gdx.audio.newSound(Gdx.files.internal("jump.wav"));
+        createPortalSound = Gdx.audio.newSound(Gdx.files.internal("createportal.wav"));
+        jumpWorldSound = Gdx.audio.newSound(Gdx.files.internal("jumpworld.wav"));
+        changeHeroSound = Gdx.audio.newSound(Gdx.files.internal("changehero.wav"));
     }
 
     private void initializeBackground() {
@@ -226,6 +240,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         if (preventPlayerChange) {
             return;
         }
+        changeHeroSound.play();
         switch (currentHero) {
             case 1:
                 stage.setKeyboardFocus(hero2);
@@ -267,6 +282,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         } else {
             customPortal.setPosition(hero.getX(), hero.getY());
         }
+        createPortalSound.play();
     }
 
     @Override
@@ -292,6 +308,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
                 /* should not happen.  But do nothing if so */
                 return;
         }
+        jumpWorldSound.play();
         hero.setWorld(currentWorld);
         freezePhysicsFor = 0.5f;
         if (portal == null) {

@@ -42,7 +42,7 @@ public class Main extends Game implements IngameScreenListener {
         ingameScreenDef.map1 = "level1-world1.tmx";
         ingameScreenDef.map2 = "level1-world2.tmx";
         ingameScreenDef.map2Offset = new Vector2(200, 0);
-        ingameScreenDef.background2Offset = new Vector2(-30, 0);
+        ingameScreenDef.background2Offset = new Vector2(-20, 0);
         ingameScreenDef.ingameScreenListener = this;
         newScreenOnNewAct = new IngameScreen(ingameScreenDef);
     }
@@ -54,7 +54,7 @@ public class Main extends Game implements IngameScreenListener {
         ingameScreenDef.map1 = "map2.tmx";
         ingameScreenDef.map2 = "map.tmx";
         ingameScreenDef.map2Offset = new Vector2(200, 0);
-        ingameScreenDef.background2Offset = new Vector2(-30, 0);
+        ingameScreenDef.background2Offset = new Vector2(-20, 0);
         ingameScreenDef.ingameScreenListener = this;
         newScreenOnNewAct = new IngameScreen(ingameScreenDef);
     }
@@ -88,7 +88,6 @@ public class Main extends Game implements IngameScreenListener {
     public void loadStory1part5() {
         final String[] images = {
                 "story/scene1/005.png",
-                "story/scene1/006.png",
                 "story/scene1/007.png"
         };
         newScreenOnNewAct = new StoryScreen(images, this);
