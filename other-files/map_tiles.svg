@@ -27,12 +27,12 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="69.42229"
-     inkscape:cy="42.254688"
+     inkscape:zoom="11.2"
+     inkscape:cx="80.848107"
+     inkscape:cy="148.71656"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="false"
+     showgrid="true"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="1600"
@@ -44,10 +44,6 @@
        orientation="1,0"
        position="16.162441,52.527932"
        id="guide3792" />
-    <sodipodi:guide
-       orientation="1,0"
-       position="31.819805,28.284271"
-       id="guide3794" />
     <sodipodi:guide
        orientation="1,0"
        position="47.982246,21.213203"
@@ -94,14 +90,6 @@
        id="guide3816" />
     <sodipodi:guide
        orientation="0,1"
-       position="-20.203051,96.090761"
-       id="guide3818" />
-    <sodipodi:guide
-       orientation="0,1"
-       position="-23.660714,128.21429"
-       id="guide3820" />
-    <sodipodi:guide
-       orientation="0,1"
        position="-19.375,112.41071"
        id="guide3822" />
     <sodipodi:guide
@@ -112,6 +100,13 @@
        orientation="1,0"
        position="144.10714,16.162441"
        id="guide4338" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid7373"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
   </sodipodi:namedview>
   <metadata
      id="metadata3789">
@@ -153,5 +148,26 @@
        y="207.89148"
        transform="translate(0,796.36218)"
        ry="4.1071429" />
+    <rect
+       ry="4.1071429"
+       y="875.99445"
+       x="16.371653"
+       height="64.018417"
+       width="63.63961"
+       id="rect7377"
+       style="fill:#996032;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       id="path7379"
+       d="m 95.989485,892.4451 0,64.5625 63.843745,0 0,-64.5625 -63.843745,0 z m 20.249995,16.1875 23.78125,0 c 2.27536,0 4.09375,1.81839 4.09375,4.09375 l 0,23.71875 c 0,2.27536 -1.81839,4.125 -4.09375,4.125 l -23.78125,0 c -2.27536,0 -4.09375,-1.84964 -4.09375,-4.125 l 0,-23.71875 c 0,-2.27536 1.81839,-4.09375 4.09375,-4.09375 z"
+       style="fill:#996032;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       inkscape:connector-curvature="0" />
+    <rect
+       ry="4.1071429"
+       y="909.091"
+       x="112.29018"
+       height="31.946074"
+       width="31.980209"
+       id="rect7381"
+       style="fill:none;stroke:#000000;stroke-opacity:1" />
   </g>
 </svg>
