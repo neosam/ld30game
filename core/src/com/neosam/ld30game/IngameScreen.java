@@ -105,6 +105,7 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         final Vector2 playerSpawnPoint = map.getTriggerPoint("player_spawn");
         hero.getBody().setTransform(playerSpawnPoint, 0);
         collisionController.addCollisionCallback(hero);
+        hero.setPortalCreateable(true);
         stage.addActor(hero);
 
         hero2 = new Hero(world, new Vector2(2, 4), textureAtlas, "hero_", "_", this);
@@ -211,10 +212,14 @@ public class IngameScreen implements Screen, HeroCollisionListener {
             case 1:
                 stage.setKeyboardFocus(hero2);
                 currentHero = 2;
+                map.setDirtsActive(true);
+                map2.setDirtsActive(true);
                 break;
             case 2:
                 stage.setKeyboardFocus(hero);
                 currentHero = 1;
+                map.setDirtsActive(false);
+                map2.setDirtsActive(false);
                 break;
         }
         Hero hero = (currentHero == 1) ? this.hero : hero2;

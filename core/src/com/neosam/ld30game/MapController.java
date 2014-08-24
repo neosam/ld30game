@@ -11,9 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by neosam on 23.08.14.
@@ -22,6 +20,8 @@ public class MapController {
     private TiledMap tiledMap;
     private Vector2 offset = new Vector2(0, 0);
     private Map<String, Vector2> portals;
+    private Set<Fixture> dirts = new HashSet<Fixture>();
+    private boolean dirtsActive;
     private Body customsPortalBody;
 
     public MapController(String path) {
@@ -71,7 +71,8 @@ public class MapController {
                         if (cell == null) {
                             continue;
                         }
-                        addBody(world, x + offset.x, y + offset.y);
+                        final boolean dirt = cell.getTile().getProperties().containsKey("dirt");
+                        addBody(world, x + offset.x, y + offset.y, dirt);
                     }
                 }
             }
@@ -101,7 +102,7 @@ public class MapController {
         return body;
     }
 
-    private void addBody(World world, float x, float y) {
+    private void addBody(World world, float x, float y, boolean dirt) {
         final BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.StaticBody;
         final Body body = world.createBody(bodyDef);
@@ -111,8 +112,11 @@ public class MapController {
         shape.setAsBox(0.1f, 0.1f);
         final FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
-        body.createFixture(fixtureDef);
+        final Fixture fixture = body.createFixture(fixtureDef);
         shape.dispose();
+        if (dirt) {
+            dirts.add(fixture);
+        }
     }
 
     public Vector2 getTriggerPoint(String name) {
@@ -148,6 +152,8 @@ public class MapController {
         customsPortalBody = addPortalBody(world, "portal_custom", portalPos);
     }
 
+
+
     public Vector2 getOffset() {
         return offset;
     }
@@ -162,5 +168,17 @@ public class MapController {
 
     public Map<String, Vector2> getPortals() {
         return portals;
+    }
+
+    public boolean isDirtsActive() {
+        return dirtsActive;
+    }
+
+    public void setDirtsActive(boolean dirtsActive) {
+        this.dirtsActive = dirtsActive;
+        for (Fixture fixture: dirts) {
+            //fixture.setSensor(dirtsActive);
+            fixture.getBody().setActive(dirtsActive);
+        }
     }
 }
