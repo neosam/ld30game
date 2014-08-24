@@ -77,7 +77,8 @@ public class Main extends Game implements IngameScreenListener {
     public void loadStory1part3() {
         final String[] images = {
                 "story/scene1/003.png",
-                "story/scene1/004.png"
+                "story/scene1/004.png",
+                "story/scene1/005.png"
         };
         newScreenOnNewAct = new StoryScreen(images, this);
     }
@@ -87,7 +88,6 @@ public class Main extends Game implements IngameScreenListener {
     }
     public void loadStory1part5() {
         final String[] images = {
-                "story/scene1/005.png",
                 "story/scene1/007.png"
         };
         newScreenOnNewAct = new StoryScreen(images, this);

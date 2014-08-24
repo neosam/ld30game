@@ -50,6 +50,7 @@ public class MoveHeroScreen implements Screen {
         }
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(Gdx.gl20.GL_COLOR_BUFFER_BIT);
+        stage.getCamera().update();
         final Batch batch = stage.getSpriteBatch();
         batch.begin();
         batch.draw(background, 0, 0, 30, 20);
@@ -61,7 +62,7 @@ public class MoveHeroScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         final ExtendViewport viewport = (ExtendViewport) stage.getViewport();
-        viewport.setWorldSize(width, height);
+        viewport.update(width, height, false);
     }
 
     @Override

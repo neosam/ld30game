@@ -45,6 +45,7 @@ public class StoryScreen implements Screen, InputProcessor {
     @Override
     public void render(float delta) {
             final Batch batch = stage.getSpriteBatch();
+        stage.getCamera().update();
             Gdx.gl.glClearColor(1, 1, 1, 1);
             Gdx.gl.glClear(Gdx.gl20.GL_COLOR_BUFFER_BIT);
             batch.begin();
@@ -58,7 +59,7 @@ public class StoryScreen implements Screen, InputProcessor {
     @Override
     public void resize(int width, int height) {
         final ExtendViewport viewport = (ExtendViewport) stage.getViewport();
-        viewport.setWorldSize(width, height);
+        viewport.update(width, height, false);
     }
 
     @Override

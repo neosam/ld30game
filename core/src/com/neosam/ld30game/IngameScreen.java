@@ -77,9 +77,9 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         music.setLooping(true);
         music.play();
         jumpSound = Gdx.audio.newSound(Gdx.files.internal("jump.wav"));
-        createPortalSound = Gdx.audio.newSound(Gdx.files.internal("createportal.wav"));
-        jumpWorldSound = Gdx.audio.newSound(Gdx.files.internal("jumpworld.wav"));
-        changeHeroSound = Gdx.audio.newSound(Gdx.files.internal("changehero.wav"));
+        createPortalSound = Gdx.audio.newSound(Gdx.files.internal("createPortal.wav"));
+        jumpWorldSound = Gdx.audio.newSound(Gdx.files.internal("jumpWorld.wav"));
+        changeHeroSound = Gdx.audio.newSound(Gdx.files.internal("changeHero.wav"));
     }
 
     private void initializeBackground() {
@@ -190,13 +190,13 @@ public class IngameScreen implements Screen, HeroCollisionListener {
                 break;
         }
         stage.draw();
-        debugRenderer.render(world, camera.combined);
+        //debugRenderer.render(world, camera.combined);
     }
 
     @Override
     public void resize(int width, int height) {
         final ExtendViewport viewport = (ExtendViewport) stage.getViewport();
-        viewport.setWorldSize(width, height);
+        viewport.update(width, height, false);
     }
 
     @Override
