@@ -59,6 +59,8 @@ public class IngameScreen implements Screen, HeroCollisionListener {
         initializeMap();
         initializeBackground();
         initializeActors();
+        switchHero(); /* triggers some useful stuff */
+        switchHero();
     }
 
     private void initializeBackground() {
