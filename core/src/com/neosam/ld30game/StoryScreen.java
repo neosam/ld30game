@@ -21,6 +21,7 @@ public class StoryScreen implements Screen, InputProcessor {
     private Stage stage;
     private int currentImage = -1;
     private Texture currentTexture;
+    private float lockTime = 0;
 
     public StoryScreen(String[] imageNames, IngameScreenListener ingameScreenListener) {
         this.imageNames = imageNames;
@@ -41,6 +42,7 @@ public class StoryScreen implements Screen, InputProcessor {
         if (currentTexture != null) {
             batch.draw(currentTexture, 0, 0, 640, 480);
         }
+        lockTime -= delta;
         batch.end();
     }
 
@@ -87,11 +89,14 @@ public class StoryScreen implements Screen, InputProcessor {
         assetManager.load(imageNames[currentImage], Texture.class);
         assetManager.finishLoading();
         currentTexture = assetManager.get(imageNames[currentImage], Texture.class);
+        lockTime = 0.5f;
     }
 
     @Override
     public boolean keyDown(int keycode) {
-        nextFrame();
+        if (lockTime < 0) {
+            nextFrame();
+        }
         return true;
 
     }
