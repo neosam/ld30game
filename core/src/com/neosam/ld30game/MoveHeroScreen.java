@@ -22,7 +22,7 @@ public class MoveHeroScreen implements Screen {
     private Texture background;
     private AssetManager assetManager;
     private IngameScreenListener ingameScreenListener;
-    private float duration = 2.5f;
+    private float duration = 2f;
 
     public MoveHeroScreen(String backgroundPath, String spritePath, Vector2 from, Vector2 to,
                           IngameScreenListener ingameScreenListener) {
@@ -38,7 +38,7 @@ public class MoveHeroScreen implements Screen {
         Actor actor = new SimpleActor(sprite);
         actor.setPosition(from.x, from.y);
         stage.addActor(actor);
-        actor.addAction(Actions.moveTo(to.x, to.y, 2));
+        actor.addAction(Actions.moveTo(to.x, to.y, 1.5f));
         Gdx.input.setInputProcessor(new InputAdapter());
     }
 
